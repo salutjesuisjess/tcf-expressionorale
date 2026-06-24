@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCF — Prognóstico de Sujets | Junho</title>
+<style>
+  /* Light mode is the DEFAULT */
+  :root{
+    --bg: #f5f3ee;
+    --panel: #ffffff;
+    --panel-2: #edf0f2;
+    --line: #d4dae0;
+    --text: #1a2128;
+    --text-dim: #4a5a68;
+    --accent: #c47d10;
+    --accent-2: #1a8a7a;
+    --danger: #b03025;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+    --serif: 'Georgia', 'Times New Roman', serif;
+  }
+  :root.dark{
+    --bg: #11161c;
+    --panel: #182029;
+    --panel-2: #1f2933;
+    --line: #2a3540;
+    --text: #e7ecf1;
+    --text-dim: #93a3b1;
+    --accent: #ffb94d;
+    --accent-2: #5ec9b8;
+    --danger: #ff6b6b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.75;
+    padding: 0 0 80px;
+    font-size: 19px;
+    transition: background .2s ease, color .2s ease;
+  }
+  header{
+    padding: 48px 24px 32px;
+    max-width: 980px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .theme-toggle{
+    position: absolute;
+    top: 48px; right: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color .15s, background .2s, color .2s;
+  }
+  .theme-toggle:hover{ border-color: var(--accent); }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 14px;
+  }
+  h1{
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .sub{ color: var(--text-dim); font-size: 19px; max-width: 700px; }
+  .meta-row{ display:flex; gap:32px; margin-top:28px; flex-wrap:wrap; }
+  .meta-item{ font-family:var(--mono); font-size:16px; color:var(--text-dim); }
+  .meta-item b{ color:var(--text); font-size:26px; display:block; font-family:var(--serif); }
+
+  main{ max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section{ margin-top: 48px; }
+
+  /* ── Tabs ── */
+  .tabs{
+    display:flex; gap:6px; flex-wrap:wrap;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 0;
+  }
+  .tab-btn{
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 15px;
+    padding: 14px 22px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: color .15s, background .15s, border-color .15s;
+    position: relative;
+    bottom: -2px;
+  }
+  .tab-btn:hover{ color: var(--text); }
+  .tab-btn.active{
+    color: var(--text);
+    background: var(--panel);
+    border-color: var(--line);
+    border-bottom-color: var(--panel);
+    font-weight: 600;
+  }
+  .tab-badge{
+    display:inline-block;
+    background: var(--panel-2);
+    color: var(--text-dim);
+    font-size: 13px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: 7px;
+    vertical-align: middle;
+  }
+  .tab-btn.active .tab-badge{
+    background: var(--accent-2);
+    color: var(--bg);
+  }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  /* ── Section head ── */
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 14px;
+  }
+  .section-head h2{ font-family:var(--serif); font-size:30px; font-weight:700; }
+  .section-head .count{
+    font-family:var(--mono); font-size:15px; color:var(--text-dim);
+    background:var(--panel-2); padding:5px 12px; border-radius:4px;
+    margin-left:auto;
+  }
+
+  /* ── Note box ── */
+  .note{
+    background: var(--panel);
+    border-left: 4px solid var(--accent-2);
+    padding: 18px 22px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 26px;
+    line-height: 1.7;
+  }
+  .note b{ color:var(--text); }
+
+  /* ── Ranking ── */
+  .rank-list{ display:flex; flex-direction:column; gap:12px; }
+  .rank-item{
+    display:grid;
+    grid-template-columns: 52px 1fr 140px;
+    gap:18px; align-items:center;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    transition: border-color .15s, transform .15s;
+    cursor: pointer;
+  }
+  .rank-item:hover{ border-color:var(--accent); transform:translateX(2px); }
+  .rank-item.open{ border-color:var(--accent-2); }
+  .rank-num{ font-family:var(--serif); font-weight:700; font-size:28px; color:var(--accent); text-align:center; }
+  .rank-name{ font-size:19px; font-weight:600; line-height:1.4; }
+  .rank-sub{ font-size:16px; color:var(--text-dim); margin-top:5px; }
+  .rank-sub .toggle-hint{ color:var(--accent-2); font-family:var(--mono); margin-left:6px; font-size:14px; }
+  .rank-score{ text-align:right; }
+  .breakdown{
+    grid-column: 1/-1;
+    display:none;
+    margin-top:6px; padding-top:14px;
+    border-top: 1px solid var(--line);
+    font-size:17px;
+  }
+  .rank-item.open .breakdown{ display:block; }
+  .breakdown-month{ display:flex; gap:12px; margin-bottom:8px; align-items:flex-start; }
+  .breakdown-month b{
+    font-family:var(--mono); font-size:14px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--accent-2);
+    min-width:52px; padding-top:2px;
+  }
+  .breakdown-month ul{ list-style:none; display:flex; flex-direction:column; gap:4px; }
+  .breakdown-month li{ color:var(--text-dim); font-size:16px; }
+  .breakdown-month li .combo-num{ color:var(--text); font-family:var(--mono); font-weight:600; }
+  .prob-bar{ width:100%; height:8px; background:var(--panel-2); border-radius:4px; overflow:hidden; margin-bottom:7px; }
+  .prob-fill{ height:100%; background:linear-gradient(90deg, var(--accent-2), var(--accent)); }
+  .prob-label{ font-family:var(--mono); font-size:15px; color:var(--text-dim); text-align:right; }
+
+  /* ── Fallen section ── */
+  .fallen-table{
+    width:100%;
+    border-collapse: collapse;
+    font-size: 18px;
+  }
+  .fallen-table thead tr{
+    border-bottom: 2px solid var(--line);
+  }
+  .fallen-table th{
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .fallen-table td{
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  .fallen-table tbody tr:last-child td{ border-bottom: none; }
+  .fallen-table tbody tr{
+    background: var(--panel);
+    transition: background .12s;
+  }
+  .fallen-table tbody tr:hover{ background: var(--panel-2); }
+  .fallen-num{
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text-dim);
+    text-align: center;
+    width: 40px;
+  }
+  .fallen-topic{
+    font-weight: 600;
+    color: var(--text);
+    font-size: 18px;
+  }
+  .fallen-task-badge{
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .badge-t1{ background: rgba(26,138,122,.12); color: var(--accent-2); border: 1px solid rgba(26,138,122,.3); }
+  .badge-t2{ background: rgba(196,125,16,.12); color: var(--accent); border: 1px solid rgba(196,125,16,.3); }
+  .badge-t3{ background: rgba(176,48,37,.12); color: var(--danger); border: 1px solid rgba(176,48,37,.3); }
+  :root.dark .badge-t1{ background: rgba(94,201,184,.15); color: #5ec9b8; border-color: rgba(94,201,184,.3); }
+  :root.dark .badge-t2{ background: rgba(255,185,77,.12); color: #ffb94d; border-color: rgba(255,185,77,.3); }
+  :root.dark .badge-t3{ background: rgba(255,107,107,.12); color: #ff6b6b; border-color: rgba(255,107,107,.3); }
+  .fallen-jun-tag{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--danger);
+    font-weight: 700;
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+  .fallen-section-wrap{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* ── Methodology ── */
+  .method ol, .method ul{ padding-left:24px; color:var(--text-dim); font-size:18px; }
+  .method li{ margin-bottom:10px; line-height:1.7; }
+  .method code{ background:var(--panel-2); padding:3px 8px; border-radius:4px; font-family:var(--mono); color:var(--accent-2); font-size:16px; }
+
+  footer{
+    margin-top:64px; padding:24px; text-align:center;
+    font-family:var(--mono); font-size:15px; color:var(--text-dim);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:600px){
+    .rank-item{ grid-template-columns: 32px 1fr; }
+    .rank-score{ grid-column: 1/-1; }
+    .theme-toggle{ position:static; display:inline-block; margin-top:16px; }
+    .tab-btn{ font-size:12px; padding:10px 12px; }
+    .breakdown-month{ flex-direction:column; gap:2px; }
+    .fallen-table th:nth-child(3),
+    .fallen-table td:nth-child(3){ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">TCF Canada · Expression Écrite · Tâche 1 · 2 · 3</div>
+  <button id="theme-toggle" class="theme-toggle">☀️ Modo claro</button>
+  <h1>O que tem mais chance de cair</h1>
+  <p class="sub">
+    Análise estatística baseada nos sujets de Tâche 1, 2 e 3 registrados de março a junho,
+    cruzando frequência histórica com o que ainda não apareceu na rodada de junho.
+  </p>
+  <div class="meta-row">
+    <div class="meta-item"><b>110</b>sujets analisados (mar–mai)</div>
+    <div class="meta-item"><b>21</b>sujets já registrados em jun (Tâche 3)</div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="note">
+    <b>Como ler isso:</b> os temas abaixo são os que mais se repetiram nos meses anteriores
+    e que <b>ainda não apareceram</b> na rodada de junho. Quanto mais alto na lista, maior a
+    chance estatística de reaparecer. Isso não é garantia — use para priorizar o que revisar.
+  </div>
+</section>
+
+<section>
+  <div class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="tache1">Tâche 1 <span class="tab-badge">Message court</span></button>
+    <button class="tab-btn" data-tab="tache2">Tâche 2 <span class="tab-badge">Narration</span></button>
+    <button class="tab-btn" data-tab="tache3">Tâche 3 <span class="tab-badge">Argumentation</span></button>
+  </div>
+</section>
+
+<!-- ════════════════ TÂCHE 1 ════════════════ -->
+<div class="tab-panel active" id="tab-tache1">
+  <section>
+    <div class="section-head">
+      <h2>Top prognósticos — Tâche 1</h2>
+      <span class="count">ranking por frequência histórica</span>
+    </div>
+    <div class="note">
+      Tâche 1 é mais variada (cada combinação tem um cenário diferente), então os grupos
+      abaixo reúnem situações semelhantes, não temas exatos.
+    </div>
+    <div class="rank-list" id="rank-list-t1"></div>
+  </section>
+  <section>
+    <div class="section-head">
+      <h2>Já caiu em junho — Tâche 1</h2>
+      <span class="count" id="t1-fallen-count"></span>
+    </div>
+    <div class="note">Situações que já apareceram nas combinações de junho até agora.</div>
+    <div class="fallen-section-wrap">
+      <table class="fallen-table" id="fallen-t1-table">
+        <thead><tr>
+          <th style="width:36px">#</th>
+          <th>Situação</th>
+          <th style="width:90px; text-align:center">Status</th>
+        </tr></thead>
+        <tbody id="fallen-list-t1"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════ TÂCHE 2 ════════════════ -->
+<div class="tab-panel" id="tab-tache2">
+  <section>
+    <div class="section-head">
+      <h2>Top prognósticos — Tâche 2</h2>
+      <span class="count">ranking por frequência histórica</span>
+    </div>
+    <div class="note">
+      Agrupamento por situação/cenário de narração, já que os temas são mais variados e
+      raramente idênticos palavra por palavra.
+    </div>
+    <div class="rank-list" id="rank-list-t2"></div>
+  </section>
+  <section>
+    <div class="section-head">
+      <h2>Já caiu em junho — Tâche 2</h2>
+      <span class="count" id="t2-fallen-count"></span>
+    </div>
+    <div class="note">Situações que já apareceram nas combinações de junho até agora.</div>
+    <div class="fallen-section-wrap">
+      <table class="fallen-table">
+        <thead><tr>
+          <th style="width:36px">#</th>
+          <th>Situação</th>
+          <th style="width:90px; text-align:center">Status</th>
+        </tr></thead>
+        <tbody id="fallen-list-t2"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════ TÂCHE 3 ════════════════ -->
+<div class="tab-panel" id="tab-tache3">
+  <section>
+    <div class="section-head">
+      <h2>Top prognósticos — Tâche 3</h2>
+      <span class="count">ranking por frequência histórica</span>
+    </div>
+    <div class="rank-list" id="rank-list-t3"></div>
+  </section>
+  <section>
+    <div class="section-head">
+      <h2>Já caiu em junho — Tâche 3</h2>
+      <span class="count">13 sujets</span>
+    </div>
+    <div class="note">
+      Esses temas já apareceram nas combinações de junho até agora. Probabilidade de
+      repetição exata é baixa (mas variações do mesmo tema podem voltar).
+    </div>
+    <div class="fallen-section-wrap">
+      <table class="fallen-table">
+        <thead><tr>
+          <th style="width:36px">#</th>
+          <th>Tema (Argumentation)</th>
+          <th style="width:90px; text-align:center">Status</th>
+        </tr></thead>
+        <tbody id="fallen-list-t3"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════ METODOLOGIA (oculto do site) ════════════════
+<section class="method" style="margin-top:56px">
+  <div class="section-head">
+    <h2>Metodologia</h2>
+  </div>
+  <ol>
+    <li>Extraí todos os sujets de Tâche 1, 2 e 3 do PDF, separados por mês (Março, Abril, Maio, Junho).</li>
+    <li>Para a Tâche 3, agrupei sujets com o mesmo tema central (ex: "Vivre en colocation", "Colocation : pour ou contre" → <code>Colocation</code>).</li>
+    <li>Para Tâche 1 e 2, agrupei por situação/cenário semelhante.</li>
+    <li>Contei a frequência de cada tema em mar+abr+mai.</li>
+    <li>Removi da lista os temas que já apareceram em junho.</li>
+    <li>Ordenei do mais frequente para o menos frequente.</li>
+  </ol>
+  <div class="note" style="margin-top:16px;">
+    <b>Limitação:</b> isso é probabilidade baseada em recorrência histórica, não uma
+    garantia oficial do TCF. Use para priorizar estudo, mas não ignore temas de baixa frequência.
+  </div>
+</section>
+═══════════════════════════════════════════════════════════ -->
+
+<!-- ════════════════ GRÁFICO PIZZA ════════════════ -->
+<section style="margin-top:56px" id="section-pizza">
+  <div class="section-head">
+    <h2>Repetições em junho</h2>
+    <span class="count">Tâche 3 · análise</span>
+  </div>
+  <div class="note">
+    <b>Teve repetição em junho?</b> Sim! Na Tâche 3, <b>6 dos 8 temas</b> de junho já tinham aparecido em meses anteriores (março–maio). 
+    Apenas <b>Zoos</b> e <b>Vélo en ville</b> eram inéditos. Isso confirma que temas recorrentes têm alta chance de reaparecer — estudar os tops do ranking vale a pena!
+  </div>
+  <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; margin-top:24px;">
+    <div style="flex:1; min-width:260px; max-width:380px;">
+      <canvas id="pizzaT3" width="340" height="340"></canvas>
+    </div>
+    <div style="flex:1; min-width:260px;">
+      <p style="font-family:var(--mono); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent-2); margin-bottom:14px;">Tâche 3 — temas de junho</p>
+      <div id="pizza-legend-t3" style="display:flex; flex-direction:column; gap:10px;"></div>
+      <div style="margin-top:28px; padding-top:18px; border-top:1px solid var(--line);">
+        <p style="font-family:var(--mono); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent-2); margin-bottom:10px;">Tâche 2 — temas de junho</p>
+        <div class="note" style="margin-bottom:0; font-size:16px;">
+          Todos os <b>8 temas</b> da Tâche 2 em junho já tinham aparecido antes — <b>100% de repetição</b>. 
+          Nenhum tema completamente inédito.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  gerado a partir de Assuntos_De_Março_-_Junho.pdf + Mais_assuntos_Junho_2026.pdf · bons estudos no TCF 🍀
+</footer>
+
+<script>
+// ── Helpers ──────────────────────────────────────────────
+const monthOrder = ["Mar","Abr","Mai","Jun"];
+
+function renderRanking(data, listId, totalLabel){
+  const maxCount = Math.max(...data.map(t=>t.c));
+  const list = document.getElementById(listId);
+  data.forEach((t, i) => {
+    const pct = Math.round((t.c / maxCount) * 100);
+    const div = document.createElement('div');
+    div.className = 'rank-item';
+    let breakdownHtml = '';
+    monthOrder.forEach(m => {
+      if (t.b && t.b[m]) {
+        const items = t.b[m].map(o => `<li><span class="combo-num">Combinação ${o.num}</span>${o.t ? ' — ' + o.t : ''}</li>`).join('');
+        breakdownHtml += `<div class="breakdown-month"><b>${m}</b><ul>${items}</ul></div>`;
+      }
+    });
+    div.innerHTML = `
+      <div class="rank-num">${i+1}</div>
+      <div>
+        <div class="rank-name">${t.n}</div>
+        <div class="rank-sub">apareceu ${t.c}x entre mar–mai <span class="toggle-hint">[clique para ver]</span></div>
+      </div>
+      <div class="rank-score">
+        <div class="prob-bar"><div class="prob-fill" style="width:${pct}%"></div></div>
+        <div class="prob-label">${t.c}x${totalLabel ? ' / ' + totalLabel : ''}</div>
+      </div>
+      <div class="breakdown">${breakdownHtml}</div>
+    `;
+    div.addEventListener('click', () => div.classList.toggle('open'));
+    list.appendChild(div);
+  });
+}
+
+function renderFallenTable(items, tbodyId, countId){
+  const tbody = document.getElementById(tbodyId);
+  items.forEach((t, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="fallen-num">${i+1}</td>
+      <td class="fallen-topic">${t}</td>
+      <td style="text-align:center"><span class="fallen-jun-tag">✓ JUN</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+  if(countId) document.getElementById(countId).textContent = items.length + ' situações';
+}
+
+// ── TÂCHE 1 ──────────────────────────────────────────────
+const t1Ranking = [
+  {n:"Renseignements sur les moyens de transport (ami qui emménage)", c:6, b:{
+    "Mar":[{num:2}],
+    "Mai":[{num:48},{num:50},{num:72},{num:74}],
+    "Jun":[{num:16}]
+  }},
+  {n:"Annonce de colocataire (chercher ou proposer)", c:4, b:{
+    "Abr":[{num:8}],
+    "Mai":[{num:33},{num:41},{num:65}]
+  }},
+  {n:"Annonce pour vendre un vélo", c:3, b:{
+    "Abr":[{num:15}],
+    "Mai":[{num:3},{num:6}]
+  }},
+  {n:"Décrire un hôtel trouvé pour un(e) ami(e)", c:3, b:{
+    "Mar":[{num:4}],
+    "Mai":[{num:54},{num:69}]
+  }},
+  {n:"Recommander des cours de langue", c:3, b:{
+    "Mar":[{num:10}],
+    "Mai":[{num:25},{num:57}]
+  }},
+  {n:"Informations sur les nouveaux locaux de l'entreprise", c:3, b:{
+    "Mar":[{num:11}],
+    "Abr":[{num:9}],
+    "Mai":[{num:19}]
+  }},
+];
+
+const t1Fallen = [
+  "Recommander une salle de sport à un(e) ami(e)",
+  "Décrire un nouveau logement / déménagement",
+  "Inviter pour anniversaire / cadeaux de vêtements",
+  "Décrire son appartement à un(e) ami(e) avant un voyage",
+  "Programme de prochaines vacances",
+  "Décrire un lieu / château pour un événement",
+  "Raconter une victoire sportive à des amis",
+  "Proposer / recommander un lieu touristique",
+  "Décrire un week-end à la campagne",
+  "Nouveau travail — description / impressions",
+];
+
+renderRanking(t1Ranking, 'rank-list-t1', null);
+renderFallenTable(t1Fallen, 'fallen-list-t1', 't1-fallen-count');
+
+// ── TÂCHE 2 ──────────────────────────────────────────────
+const t2Ranking = [
+  {n:"Étude à l'étranger — récit / avis (Facebook ou forum)", c:6, b:{
+    "Abr":[{num:4},{num:10}],
+    "Mai":[{num:20},{num:68},{num:71},{num:83}]
+  }},
+  {n:"Apprentissage d'une langue étrangère — récit", c:5, b:{
+    "Mar":[{num:1}],
+    "Mai":[{num:49},{num:51},{num:73}],
+    "Jun":[{num:17}]
+  }},
+  {n:"\"Tout quitter\" pour voyager ou changer de vie (forum)", c:4, b:{
+    "Mar":[{num:3}],
+    "Mai":[{num:9},{num:12},{num:70}]
+  }},
+  {n:"Semaine sans voiture — récit", c:3, b:{
+    "Mar":[{num:11}],
+    "Abr":[{num:9}],
+    "Mai":[{num:19}]
+  }},
+  {n:"Témoignage sur la colocation", c:4, b:{
+    "Mar":[{num:14}],
+    "Abr":[{num:3}],
+    "Mai":[{num:82}],
+    "Jun":[{num:18}]
+  }},
+  {n:"Habitudes alimentaires — récit", c:4, b:{
+    "Abr":[{num:5}],
+    "Mai":[{num:30},{num:35}],
+    "Jun":[{num:13}]
+  }},
+  {n:"Admiration pour une personnalité célèbre — article", c:4, b:{
+    "Mai":[{num:48},{num:52},{num:72}],
+    "Jun":[{num:16}]
+  }},
+  {n:"Spectacle (film / théâtre / concert) — récit", c:2, b:{
+    "Mar":[{num:4}],
+    "Mai":[{num:54}]
+  }},
+  {n:"Formation / cours — récit d'expérience", c:2, b:{
+    "Mar":[{num:8}],
+    "Mai":[{num:62}]
+  }},
+  {n:"Journée à la campagne — récit", c:2, b:{
+    "Abr":[{num:15}],
+    "Mai":[{num:3}]
+  }},
+  {n:"Fête en famille / fête traditionnelle — récit", c:3, b:{
+    "Mai":[{num:5},{num:34}],
+    "Jun":[{num:14}]
+  }},
+  {n:"Quitter la ville pour la campagne (forum)", c:2, b:{
+    "Abr":[{num:11}],
+    "Mai":[{num:21}]
+  }},
+  {n:"Présenter sa profession aux élèves", c:2, b:{
+    "Abr":[{num:12}],
+    "Mai":[{num:22}]
+  }},
+  {n:"Festival de musique gratuit / événement récent — récit", c:3, b:{
+    "Abr":[{num:6}],
+    "Mai":[{num:31}],
+    "Jun":[{num:20}]
+  }},
+  {n:"Nouvelle activité de loisir — récit", c:2, b:{
+    "Mai":[{num:41},{num:65}]
+  }},
+  {n:"Fête de voisins — récit", c:2, b:{
+    "Mai":[{num:50},{num:74}]
+  }},
+  {n:"Souvenir de voyage préféré — article de blog", c:3, b:{
+    "Abr":[{num:1}],
+    "Mai":[{num:80}],
+    "Jun":[{num:19}]
+  }},
+  {n:"Troupe de théâtre — récit", c:2, b:{
+    "Abr":[{num:8}],
+    "Mai":[{num:33}]
+  }},
+];
+
+const t2Fallen = [
+  "Habitudes alimentaires dans votre pays — récit",
+  "Fête traditionnelle — récit de blog",
+  "Événement marquant (anniversaire, mariage) — récit",
+  "Admiration pour une personnalité célèbre — article",
+  "Apprentissage d'une langue étrangère — récit",
+  "Témoignage sur la colocation",
+  "Souvenir de voyage préféré — article de blog",
+  "Événement récent (fête, festival) — article de blog",
+  "Salle pour fête de fin d'année — 100 invités",
+  "Exposition de votre artiste préféré — récit",
+  "Concours \"mon artiste préféré\"",
+  "Nouveau travail / primeira semana — récit",
+  "Vacances dans une belle région — récit",
+  "Association / aide aux personnes âgées",
+  "Brocante — récit",
+  "Débat sur les formations en ligne — récit",
+  "Cours de sport en salle — récit / avis",
+  "Journée nettoyage de la planète — récit",
+];
+
+renderRanking(t2Ranking, 'rank-list-t2', null);
+renderFallenTable(t2Fallen, 'fallen-list-t2', 't2-fallen-count');
+
+// ── TÂCHE 3 ──────────────────────────────────────────────
+const t3Ranking = [
+  {n:"Relations amicales / Bien-être au travail / Sieste", c:6, b:{
+    "Mar":[{num:4, t:"Les Relations Amicales au Travail"}],
+    "Abr":[{num:5, t:"La sieste au travail"}],
+    "Mai":[{num:12, t:"Le Bien-être au Travail"},{num:30, t:"La sieste au travail"},{num:54, t:"Les relations amicales au travail"},{num:70, t:"Le Bien Être Au Travail"}]
+  }},
+  {n:"Colocation (vivre en colocation / vie en colocation)", c:7, b:{
+    "Mar":[{num:2, t:"Vivre en colocation"}],
+    "Mai":[{num:24, t:"Vie en colocation entre adultes"},{num:48, t:"Vivre En Colocation"},{num:52, t:"Vivre en colocation"},{num:58, t:"La colocation"},{num:72, t:"Vivre En Colocation"}],
+    "Jun":[{num:16, t:"Vivre En Colocation"}]
+  }},
+  {n:"La lecture pour les enfants", c:6, b:{
+    "Mar":[{num:9, t:"La lecture pour les enfants"}],
+    "Abr":[{num:2, t:"La lecture pour les enfants"}],
+    "Mai":[{num:27, t:"La lecture pour les enfants"},{num:40, t:"La lecture pour les enfants"},{num:81, t:"La lecture pour les enfants"}],
+    "Jun":[{num:15, t:"La lecture pour les enfants"}]
+  }},
+  {n:"Jeux vidéo (pour ou contre / impact comportement)", c:5, b:{
+    "Mai":[{num:4, t:"Les Jeux Vidéo : Pour ou contre"},{num:11, t:"Les jeux vidéo"},{num:35, t:"Les Jeux Vidéo - Impact Sur Le Comportement"},{num:69, t:"Les Jeux Vidéo"}],
+    "Jun":[{num:13, t:"Jeux vidéo : pour ou contre ?"}]
+  }},
+  {n:"Cuisinier amateur ou professionnel", c:5, b:{
+    "Mar":[{num:1, t:"Cuisinier amateur ou professionnel"}],
+    "Mai":[{num:49, t:"Cuisinier amateur ou professionnel"},{num:51, t:"Cuisinier amateur ou professionnel"},{num:73, t:"Cuisinier amateur ou professionnel"}],
+    "Jun":[{num:17, t:"Cuisinier amateur ou cuisinier professionnel ?"}]
+  }},
+  {n:"La vie à la campagne ou en ville", c:3, b:{
+    "Abr":[{num:7, t:"La vie à la campagne ou en ville"}],
+    "Mai":[{num:7, t:"La vie à la campagne ou en ville"},{num:32, t:"La vie à la campagne ou en ville"}]
+  }},
+  {n:"L'uniforme à l'école", c:3, b:{
+    "Abr":[{num:10, t:"L'uniforme à l'école"}],
+    "Mai":[{num:20, t:"L'uniforme à l'école"},{num:68, t:"L'uniforme scolaire"}]
+  }},
+  {n:"Restauration rapide", c:3, b:{
+    "Mai":[{num:34, t:"La restauration rapide"},{num:39, t:"La Restauration Rapide"},{num:67, t:"La Restauration Rapide"}]
+  }},
+  {n:"Le grossissement des villes", c:4, b:{
+    "Mar":[{num:14, t:"Le grossissement des villes"}],
+    "Abr":[{num:3, t:"Le grossissement des villes"}],
+    "Mai":[{num:82, t:"Le grossissement des villes"}],
+    "Jun":[{num:18, t:"Le grossissement des villes"}]
+  }},
+  {n:"Animaux de compagnie pour les enfants", c:3, b:{
+    "Mar":[{num:10, t:"Les animaux de compagnie pour les enfants"}],
+    "Mai":[{num:25, t:"Les animaux de compagnie pour les enfants"},{num:76, t:"Les animaux de compagnie pour les enfants"}]
+  }},
+  {n:"La sévérité des parents envers les enfants", c:2, b:{
+    "Abr":[{num:15, t:"La sévérité des parents envers les enfants"}],
+    "Mai":[{num:3, t:"La sévérité des parents envers les enfants"}]
+  }},
+  {n:"Égalité homme-femme (en milieu de travail)", c:2, b:{
+    "Mai":[{num:10, t:"Égalité homme-femme"},{num:13, t:"Égalité Homme/Femme en Milieu de Travail"}]
+  }},
+  {n:"Végétarisme / consommation de viande", c:2, b:{
+    "Mai":[{num:56, t:"Le végétarisme en Europe"},{num:57, t:"La consommation de viande"}]
+  }},
+  {n:"Limitation / interdiction des voitures en centre-ville", c:2, b:{
+    "Mai":[{num:5, t:"L'interdiction des Voitures dans les Centres-Villes"},{num:26, t:"Limitation des voitures dans les centres-villes"}]
+  }},
+  {n:"Vivre chez ses parents : pour ou contre", c:3, b:{
+    "Abr":[{num:1, t:"Vivre chez ses parents : pour ou contre"}],
+    "Mai":[{num:80, t:"Vivre chez ses parents"}],
+    "Jun":[{num:19, t:"Vivre chez ses parents, pour ou contre ?"}]
+  }},
+  {n:"Le travail des jeunes pendant les vacances", c:2, b:{
+    "Mar":[{num:15, t:"Le travail des jeunes pendant les vacances"}],
+    "Mai":[{num:8, t:"Le travail des jeunes pendant les vacances"}]
+  }},
+  {n:"Le travail : favorable ou défavorable ?", c:2, b:{
+    "Mar":[{num:3, t:"Le travail : favorable ou défavorable"}],
+    "Mai":[{num:9, t:"Le travail : favorable ou défavorable"}]
+  }},
+  {n:"Faut-il faire ses courses : petits magasins ou supermarchés ?", c:2, b:{
+    "Abr":[{num:14, t:"Faut-il faire ses courses petits magasins ou supermarchés"}],
+    "Mai":[{num:2, t:"Faut-il faire ses courses petits magasins ou supermarchés"}]
+  }},
+  {n:"Les objets connectés", c:2, b:{
+    "Mar":[{num:13, t:"Objets Connectés"}],
+    "Mai":[{num:64, t:"Les objets connectés"}]
+  }},
+  {n:"Les nouvelles technologies pour les enfants", c:2, b:{
+    "Abr":[{num:4, t:"Les nouvelles technologies pour les enfants"}],
+    "Mai":[{num:83, t:"Les nouvelles technologies pour les enfants"}]
+  }},
+  {n:"La gratuité des musées", c:2, b:{
+    "Mai":[{num:41, t:"La Gratuité Des Musées"},{num:65, t:"La Gratuité Des Musées"}]
+  }},
+  {n:"L'emploi des jeunes : diplôme ou expérience ?", c:2, b:{
+    "Abr":[{num:6, t:"L'emploi des jeunes : diplôme ou expérience"}],
+    "Mai":[{num:31, t:"L'emploi des jeunes : diplôme ou expérience"}]
+  }},
+  {n:"Distributeurs automatiques dans les écoles", c:2, b:{
+    "Mai":[{num:50, t:"L'utilisation Des Distributeurs Automatiques dans les écoles"},{num:74, t:"L'utilisation des distributeurs automatiques dans les écoles"}]
+  }},
+  {n:"L'aide aux personnes pauvres", c:2, b:{
+    "Mai":[{num:47, t:"L'aide Aux Personnes Pauvres"},{num:71, t:"L'aide aux personnes pauvres"}]
+  }},
+  {n:"Les parcs zoologiques : pour ou contre", c:1, b:{
+    "Jun":[{num:14, t:"Les parcs zoologiques : Pour ou contre ?"}]
+  }},
+  {n:"Le vélo en ville : pour ou contre", c:1, b:{
+    "Jun":[{num:20, t:"Le vélo en ville, pour ou contre ?"}]
+  }},
+];
+
+const t3Fallen = [
+  "Jeux vidéo : pour ou contre ?",
+  "Les parcs zoologiques : pour ou contre ?",
+  "La lecture pour les enfants",
+  "Vivre en colocation",
+  "Cuisinier amateur ou professionnel ?",
+  "Le grossissement des villes",
+  "Vivre chez ses parents : pour ou contre ?",
+  "Le vélo en ville : pour ou contre ?",
+  "Les produits faits maison (pour ou contre)",
+  "Les écoles privées ou publiques",
+  "Les devoirs à la maison",
+  "Nouvelles technologies dans les écoles",
+  "Les publicités (pour ou contre)",
+  "Les vols à bas prix",
+  "Les cours de langue en ligne",
+  "Que pensez-vous des maisons de retraite ?",
+  "La chasse aux animaux",
+  "Livraison des repas au bureau",
+  "Caméras de surveillance",
+  "Les produits faits maison (variante 2)",
+  "Les Vêtements de Grandes Marques",
+];
+
+renderRanking(t3Ranking, 'rank-list-t3', '118 sujets');
+renderFallenTable(t3Fallen, 'fallen-list-t3', null);
+
+// ── Tab switching ─────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ── Theme toggle ──────────────────────────────────────────
+const themeBtn = document.getElementById('theme-toggle');
+function applyTheme(isDark){
+  document.documentElement.classList.toggle('dark', isDark);
+  themeBtn.textContent = isDark ? '☀️ Modo claro' : '🌙 Modo escuro';
+}
+applyTheme(false); // light mode by default
+themeBtn.addEventListener('click', () => {
+  applyTheme(!document.documentElement.classList.contains('dark'));
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+// ── Pizza chart ────────────────────────────────────────
+const t3JunThemes = [
+  {label:"Jeux vidéo (4x antes)", repeated:true},
+  {label:"Lecture enfants (5x antes)", repeated:true},
+  {label:"Colocation (6x antes)", repeated:true},
+  {label:"Cuisinier (4x antes)", repeated:true},
+  {label:"Gross. des villes (3x antes)", repeated:true},
+  {label:"Vivre chez parents (2x antes)", repeated:true},
+  {label:"Zoos (inédito)", repeated:false},
+  {label:"Vélo en ville (inédito)", repeated:false},
+];
+
+const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#c47d10';
+const accent2Color = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#1a8a7a';
+const panelColor = getComputedStyle(document.documentElement).getPropertyValue('--panel-2').trim() || '#edf0f2';
+const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#1a2128';
+const textDim = getComputedStyle(document.documentElement).getPropertyValue('--text-dim').trim() || '#4a5a68';
+
+const repeatedCount = t3JunThemes.filter(t=>t.repeated).length;
+const newCount = t3JunThemes.filter(t=>!t.repeated).length;
+
+const ctx = document.getElementById('pizzaT3').getContext('2d');
+const pizzaChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Repetidos (já vistos antes)', 'Inéditos em junho'],
+    datasets: [{
+      data: [repeatedCount, newCount],
+      backgroundColor: [accent2Color, accentColor],
+      borderWidth: 0,
+      hoverOffset: 8,
+    }]
+  },
+  options: {
+    cutout: '62%',
+    plugins: {
+      legend: {display: false},
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.parsed} temas (${Math.round(ctx.parsed/8*100)}%)`
+        }
+      }
+    },
+    animation: {animateRotate: true, duration: 800}
+  },
+  plugins: [{
+    id: 'centerText',
+    afterDraw(chart) {
+      const {ctx, chartArea:{width, height, top}} = chart;
+      ctx.save();
+      ctx.font = 'bold 36px Georgia, serif';
+      ctx.fillStyle = textColor;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const cx = width/2, cy = top + height/2;
+      ctx.fillText('6/8', cx, cy - 14);
+      ctx.font = '14px -apple-system, sans-serif';
+      ctx.fillStyle = textDim;
+      ctx.fillText('repetidos', cx, cy + 16);
+      ctx.restore();
+    }
+  }]
+});
+
+// Legend
+const legendEl = document.getElementById('pizza-legend-t3');
+t3JunThemes.forEach(t => {
+  const div = document.createElement('div');
+  div.style.cssText = 'display:flex;align-items:center;gap:10px;font-size:16px;';
+  const dot = document.createElement('span');
+  dot.style.cssText = `width:12px;height:12px;border-radius:50%;flex-shrink:0;background:${t.repeated ? accent2Color : accentColor}`;
+  const txt = document.createElement('span');
+  txt.style.color = t.repeated ? 'var(--text-dim)' : 'var(--text)';
+  txt.textContent = t.label;
+  if(!t.repeated){txt.style.fontWeight='600';}
+  div.appendChild(dot);
+  div.appendChild(txt);
+  legendEl.appendChild(div);
+});
+
+// Re-render pizza on theme toggle to pick up new CSS vars
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  setTimeout(() => {
+    const a = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    const a2 = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim();
+    pizzaChart.data.datasets[0].backgroundColor = [a2, a];
+    pizzaChart.update();
+  }, 250);
+});
+</script>
+
+</body>
+</html>
