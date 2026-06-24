@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TCF – Tâche 3 : Banque de réponses</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
 <style>
   /* ===== TOKENS ===== */
   :root {
@@ -264,6 +265,31 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+
+  /* ===== BOTÃO DE NAVEGAÇÃO ENTRE PÁGINAS ===== */
+  .btn-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 9px 20px;
+    background: var(--or);
+    color: var(--bleu);
+    font-family: var(--fonte-corpo);
+    font-size: .88rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 24px;
+    border: 2px solid transparent;
+    transition: background .2s, color .2s, transform .15s, border-color .2s;
+    letter-spacing: .02em;
+  }
+  .btn-nav-link:hover {
+    background: white;
+    color: var(--bleu);
+    border-color: var(--or);
+    transform: translateY(-2px);
+  }
 </style>
 </head>
 <body>
@@ -271,6 +297,7 @@
 <header>
   <h1>TCF – Tâche 3 : Banque de réponses</h1>
   <p>Regroupement de questions par thème · Structures modèles avec marqueurs grammaticaux</p>
+  <a href="prognostico_v5.html" class="btn-nav-link">📊 Ver Prognóstico de Temas</a>
 </header>
 
 <nav>
