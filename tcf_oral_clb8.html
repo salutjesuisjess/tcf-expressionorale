@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCF Canada — Expression Orale CLB 8</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f4f0;color:#1a1a18;padding:1.2rem .8rem}
+.app{max-width:780px;margin:0 auto}
+h1{font-size:23px;font-weight:600;letter-spacing:-.02em;margin-bottom:3px}
+.btn-back{display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;padding:7px 16px;background:#f0f4ff;color:#185FA5;font-size:13px;font-weight:600;text-decoration:none;border-radius:20px;border:1.5px solid #c5d8f5;transition:background .18s,transform .15s}
+.btn-back:hover{background:#185FA5;color:#fff;transform:translateY(-1px)}
+.sub{font-size:15px;color:#6b6b67;margin-bottom:1rem}
+.badge{display:inline-block;background:#185FA5;color:#E6F1FB;font-size:15px;font-weight:600;padding:2px 9px;border-radius:99px;margin-left:7px;vertical-align:middle}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem}
+.sc{background:#fff;border:0.5px solid #d9d8d2;border-radius:9px;padding:11px 13px}
+.sc .l{font-size:15px;color:#6b6b67;margin-bottom:2px}
+.sc .v{font-size:22px;font-weight:600}
+.sc .s{font-size:15px;color:#aaa;margin-top:1px}
+
+/* CSS-only tabs using radio */
+.tab-wrap{margin-bottom:1.1rem}
+.tab-radio{display:none}
+.tab-labels{display:flex;border:0.5px solid #d9d8d2;border-radius:10px;overflow:hidden;background:#fff;margin-bottom:1.1rem}
+.tab-label{flex:1;padding:10px 6px;font-size:16px;font-weight:500;text-align:center;cursor:pointer;color:#6b6b67;border-right:0.5px solid #d9d8d2;line-height:1.3;user-select:none}
+.tab-label:last-child{border-right:none}
+.tab-label span{display:block;font-size:16px;opacity:.65;margin-top:2px}
+#tab-t2:checked ~ .tab-labels label[for=tab-t2],
+#tab-t3:checked ~ .tab-labels label[for=tab-t3]{background:#1a1a18;color:#fff}
+.tab-content{display:none}
+#tab-t2:checked ~ .tab-content.t2{display:block}
+#tab-t3:checked ~ .tab-content.t3{display:block}
+
+/* Sub tabs */
+.sub-radio{display:none}
+.sub-labels{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.sub-label{padding:6px 13px;font-size:16px;font-weight:500;border:0.5px solid #d9d8d2;border-radius:99px;cursor:pointer;background:#fff;color:#6b6b67;user-select:none}
+.sub-content{display:none}
+
+#s2a:checked ~ .sub-labels label[for=s2a],
+#s2b:checked ~ .sub-labels label[for=s2b],
+#s2c:checked ~ .sub-labels label[for=s2c],
+#s2d:checked ~ .sub-labels label[for=s2d]{background:#1a1a18;border-color:#1a1a18;color:#fff}
+#s2a:checked ~ .sub-content.s2a{display:block}
+#s2b:checked ~ .sub-content.s2b{display:block}
+#s2c:checked ~ .sub-content.s2c{display:block}
+#s2d:checked ~ .sub-content.s2d{display:block}
+
+#s3a:checked ~ .sub-labels label[for=s3a],
+#s3b:checked ~ .sub-labels label[for=s3b],
+#s3c:checked ~ .sub-labels label[for=s3c]{background:#1a1a18;border-color:#1a1a18;color:#fff}
+#s3a:checked ~ .sub-content.s3a{display:block}
+#s3b:checked ~ .sub-content.s3b{display:block}
+#s3c:checked ~ .sub-content.s3c{display:block}
+
+/* Info row */
+.info-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.9rem}
+.ic{background:#fff;border:0.5px solid #d9d8d2;border-radius:9px;padding:10px 12px}
+.ic .l{font-size:16px;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.ic .v{font-size:15px;color:#1a1a18;font-weight:500;line-height:1.35}
+
+/* Tip */
+.tip{background:#fff;border-radius:0 9px 9px 0;padding:11px 14px;margin-bottom:1rem}
+.tip.g{border-left:3px solid #1D9E75}
+.tip.b{border-left:3px solid #185FA5}
+.tip h3{font-size:15px;font-weight:600;margin-bottom:4px}
+.tip p{font-size:15px;color:#555;line-height:1.6}
+.tip em{font-weight:600;color:#1a1a18}
+
+/* Details / accordion */
+details{background:#fff;border:0.5px solid #d9d8d2;border-radius:11px;overflow:hidden;margin-bottom:9px}
+details[open]{border-color:#b8b7b0}
+summary{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;list-style:none;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"\276E";margin-left:auto;font-size:16px;color:#bbb;transform:rotate(-90deg);transition:transform .2s}
+details[open] summary::after{transform:rotate(90deg)}
+summary:hover{background:#f9f9f7}
+.s-num{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;flex-shrink:0}
+.s-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.s-info{flex:1}
+.s-name{font-size:16px;font-weight:600;color:#1a1a18}
+.s-sub{font-size:16px;color:#6b6b67;margin-top:1px}
+.s-count{font-size:16px;color:#aaa;margin-right:4px;white-space:nowrap}
+.det-body{padding:14px 15px;border-top:0.5px solid #ebebeb}
+
+/* Freq badge */
+.freq-badge{display:inline-block;font-size:15px;font-weight:600;padding:4px 10px;border-radius:6px;margin-bottom:11px}
+
+/* Steps */
+.step-title{font-size:16px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.steps{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.step{display:flex;gap:9px;align-items:flex-start}
+.step-n{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;flex-shrink:0;margin-top:1px}
+.step-x{font-size:15px;color:#333;line-height:1.5}
+
+/* Phrases block */
+.ph-block{background:#f2f1ec;border-radius:8px;padding:11px 13px;margin-bottom:12px}
+.ph-block-title{font-size:16px;font-weight:600;color:#185FA5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.ph-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:5px}
+.ph-role{font-size:15px;color:#888;min-width:85px;flex-shrink:0;margin-top:1px;}
+.ph-text{font-size:16px;color:#1a1a18;line-height:1.5;font-weight:500}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px}
+.tag{font-size:15px;padding:3px 9px;border-radius:99px}
+
+/* Example */
+.ex-box{border-radius:8px;padding:12px 13px;margin-top:8px;border:0.5px solid #B5D4F4;background:#EAF4FF}
+.ex-title{font-size:16px;font-weight:600;color:#185FA5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.ex-text{font-size:16px;color:#1a1a18;line-height:1.75;white-space:pre-wrap}
+.ex-note{font-size:15px;color:#888;margin-top:7px;font-style:normal}
+
+/* Consigne items */
+.con-list{display:flex;flex-direction:column;gap:7px}
+.con-item{background:#f7f7f5;border-radius:8px;padding:10px 13px;font-size:15px;color:#333;line-height:1.6;font-weight:500}
+
+/* Scenario list */
+.sc-list{list-style:none}
+.sc-list li{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:0.5px solid #f2f1ed}
+.sc-list li:last-child{border-bottom:none}
+.sc-li{flex:1}
+.sc-n{font-size:15px;color:#1a1a18;font-weight:500;line-height:1.35}
+.sc-d{font-size:16px;color:#888;margin-top:1px}
+.occ{font-size:15px;font-weight:600;padding:2px 8px;border-radius:99px;flex-shrink:0;margin-top:2px;white-space:nowrap}
+.oh{background:#FAECE7;color:#993C1D}
+.om{background:#E6F1FB;color:#185FA5}
+.ol{background:#EAF3DE;color:#3B6D11}
+
+@media(max-width:500px){.stats{grid-template-columns:1fr 1fr}.info-row{grid-template-columns:1fr}}
+
+/* Fórmulas EO */
+.formula-section{margin-bottom:1.1rem}
+.formula-section-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#185FA5;margin-bottom:.6rem;margin-top:1rem}
+.formula-grid-eo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:1rem}
+.formula-card-eo{background:#fff;border:0.5px solid #d9d8d2;border-radius:11px;overflow:hidden}
+.formula-head-eo{padding:9px 14px;font-size:16px;font-weight:600;color:#fff}
+.formula-body-eo{padding:10px 14px}
+.formula-row-eo{display:flex;gap:8px;padding:5px 0;border-bottom:0.5px solid #f2f1ed;align-items:flex-start}
+.formula-row-eo:last-child{border:none}
+.formula-fn-eo{font-size:16px;font-weight:700;text-transform:uppercase;color:#185FA5;min-width:80px;padding-top:2px;flex-shrink:0;letter-spacing:.04em}
+.formula-t-eo{font-size:14.5px;color:#333;font-weight:500;line-height:1.5}
+.formula-pt-eo{font-size:15px;color:#888;display:block;margin-top:1px;font-style:normal}
+.formula-tip-eo{background:#fff;border-left:3px solid #1D9E75;border-radius:0 9px 9px 0;padding:10px 13px;margin-bottom:1rem;font-size:14.5px;color:#1a3a2a;line-height:1.6}
+.formula-tip-eo strong{font-weight:600}
+
+/* Expressões section */
+.exp2-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#185FA5;margin-bottom:.8rem;margin-top:1.2rem}
+.exp2-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:1.2rem}
+.exp2-card{background:#fff;border:0.5px solid #d9d8d2;border-radius:11px;padding:13px 15px}
+.exp2-card h4{font-size:13px;font-weight:700;color:#185FA5;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid #E6F1FB}
+.exp2-card p{font-size:14px;color:#1a1a18;padding:4px 0;line-height:1.5}
+.exp2-card p+p{border-top:1px dashed #e9e8e3}
+
+/* Accordion for Expressões */
+.exp2-acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.2rem}
+@media(max-width:600px){.exp2-acc-grid{grid-template-columns:1fr}}
+.exp2-acc-item{background:#fff;border:0.5px solid #d9d8d2;border-radius:11px;overflow:hidden}
+.exp2-acc-btn{width:100%;text-align:left;background:none;border:none;padding:12px 15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#1a1a18;transition:background .15s}
+.exp2-acc-btn:hover{background:#f5f4f0}
+.exp2-acc-icon{font-size:16px;color:#185FA5;transition:transform .25s;flex-shrink:0}
+.exp2-acc-btn.open .exp2-acc-icon{transform:rotate(45deg)}
+.exp2-acc-content{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 15px}
+.exp2-acc-content.open{max-height:600px;padding:8px 15px 14px}
+.exp2-q-list{list-style:none}
+.exp2-q-list li{font-size:13px;padding:5px 0;border-bottom:0.5px solid #f2f1ed;color:#1a1a18;line-height:1.45}
+.exp2-q-list li:last-child{border-bottom:none}
+.exp2-q-list li::before{content:'• ';color:#185FA5;font-weight:700}
+
+/* Réagir / Finir cards */
+.exp2-bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1rem}
+@media(max-width:600px){.exp2-bottom{grid-template-columns:1fr}}
+.exp2-bottom-card{background:#fff;border:0.5px solid #d9d8d2;border-radius:11px;padding:13px 15px}
+.exp2-bottom-card.violet{border-left:3px solid #7c3aed}
+.exp2-bottom-card.mint{border-left:3px solid #1D9E75}
+.exp2-bottom-card h4{font-size:13px;font-weight:700;color:#1a1a18;margin-bottom:8px}
+.exp2-bottom-card ul{list-style:none;font-size:13px;line-height:2}
+.exp2-bottom-card p{font-size:13px;line-height:1.8;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="app">
+<a href="index.html" class="btn-back">← Tâche 3 — Banque de réponses</a>
+<h1>Expression Orale — TCF Canada <span class="badge">CLB 8</span></h1>
+<p class="sub">Guide stratégique 2022–2026 &middot; Tâches 2 et 3 &middot; Scénarios, consignes et phrases clés</p>
+
+<div class="stats">
+  <div class="sc"><div class="l">Tâches orales</div><div class="v">2</div><div class="s">Tâche 2 et Tâche 3</div></div>
+  <div class="sc"><div class="l">Scénarios T2</div><div class="v">1 855</div><div class="s">9 catégories</div></div>
+  <div class="sc"><div class="l">Thèmes T3</div><div class="v">2 320</div><div class="s">8 catégories</div></div>
+  <div class="sc"><div class="l">Consignes réelles</div><div class="v">80+</div><div class="s">Archives 2022–2026</div></div>
+</div>
+
+<!-- TABS -->
+<div class="tab-wrap">
+  <input class="tab-radio" type="radio" name="main-tab" id="tab-t2" checked>
+  <input class="tab-radio" type="radio" name="main-tab" id="tab-t3">
+  <div class="tab-labels">
+    <label class="tab-label" for="tab-t2">Tâche 2<span>Obtenir des informations</span></label>
+    <label class="tab-label" for="tab-t3">Tâche 3<span>Exposer un point de vue</span></label>
+  </div>
+
+  <!-- ======== TÂCHE 2 ======== -->
+  <div class="tab-content t2">
+    <div class="info-row">
+      <div class="ic"><div class="l">Format</div><div class="v">Dialogue guidé &middot; 3–5 min</div></div>
+      <div class="ic"><div class="l">Objectif</div><div class="v">Poser des questions pertinentes</div></div>
+      <div class="ic"><div class="l">CLB 8</div><div class="v">Questions indirectes + relances</div></div>
+    </div>
+    <div class="tip g">
+      <h3>Stratégie CLB 8 — Tâche 2</h3>
+      <p>Le correcteur évalue la <em>variété des formes interrogatives</em>, la <em>pertinence des questions</em> et la capacité à <em>relancer naturellement</em> la conversation. Alterner entre forme directe, indirecte et intonative. Utiliser des formules de transition : <em>« Et en ce qui concerne… / Pourriez-vous me préciser… ? / Et du côté de… ? »</em></p>
+    </div>
+
+    <!-- Fórmulas EO T2 -->
+    <div class="formula-section">
+      <div class="formula-section-title">🎯 Fórmulas prontas — EO Tâche 2</div>
+      <div class="formula-tip-eo"><strong>Estratégia de ouro:</strong> Decore estas frases até sair automático. No exame, não pense — use. Elas valem pontos garantidos de vocabulário e gramática.</div>
+      <div class="formula-grid-eo">
+        <div class="formula-card-eo">
+          <div class="formula-head-eo" style="background:#185FA5">🎤 EO T2 — Perguntas Formais</div>
+          <div class="formula-body-eo">
+            <div class="formula-row-eo"><div class="formula-fn-eo">Abertura</div><div class="formula-t-eo">Je voudrais savoir si… <span class="formula-pt-eo">Eu gostaria de saber se…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Pergunta</div><div class="formula-t-eo">Pourriez-vous me dire… <span class="formula-pt-eo">Poderia me dizer…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Detalhe</div><div class="formula-t-eo">J'aimerais obtenir des précisions sur… <span class="formula-pt-eo">Gostaria de obter precisões sobre…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Pedido</div><div class="formula-t-eo">Serait-il possible de… <span class="formula-pt-eo">Seria possível…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Confirmação</div><div class="formula-t-eo">Pourriez-vous me confirmer que… <span class="formula-pt-eo">Poderia confirmar que…</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input class="sub-radio" type="radio" name="sub2" id="s2a" checked>
+    <input class="sub-radio" type="radio" name="sub2" id="s2b">
+    <input class="sub-radio" type="radio" name="sub2" id="s2c">
+    <input class="sub-radio" type="radio" name="sub2" id="s2d">
+    <div class="sub-labels">
+      <label class="sub-label" for="s2a">Stratégie CLB 8</label>
+      <label class="sub-label" for="s2b">Consignes réelles</label>
+      <label class="sub-label" for="s2c">Scénarios &amp; fréquences</label>
+      <label class="sub-label" for="s2d">Expressões</label>
+    </div>
+
+    <div class="sub-content s2a">
+
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#E6F1FB;color:#185FA5">1</div>
+    <div class="s-info"><div class="s-name">Voyages et Tourisme</div><div class="s-sub">Agences, hôtels, activités, logistique (~420 scénarios — le plus fréquent)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#E6F1FB;color:#185FA5">Catégorie n°1 — priorité absolue</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">1</div><div class="step-x">Saluer et clarifier votre démarche (touriste, futur voyageur, curiosité...)</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">2</div><div class="step-x">Questions sur les destinations ou activités disponibles</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">3</div><div class="step-x">Questions sur les tarifs, inclusions et conditions</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">4</div><div class="step-x">Questions sur la logistique pratique (transport, hébergement)</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">5</div><div class="step-x">Questions sur les services spécifiques (Wi-Fi, petit-déjeuner, excursions...)</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">6</div><div class="step-x">Clore en demandant les démarches de réservation</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Ouverture</span><span class="ph-text">Bonjour, je cherche à organiser un séjour et j'aurais quelques questions si vous avez un moment.</span></div>
+<div class="ph-row"><span class="ph-role">Destinations</span><span class="ph-text">Quelles destinations recommanderiez-vous pour [PROFIL / PÉRIODE] — avez-vous des forfaits tout inclus ?</span></div>
+<div class="ph-row"><span class="ph-role">Tarifs</span><span class="ph-text">Pourriez-vous me donner une idée des tarifs, et ce qui est inclus dans le prix exactement ?</span></div>
+<div class="ph-row"><span class="ph-role">Transport</span><span class="ph-text">Est-ce que le transport depuis [VILLE] est inclus, ou faut-il le prévoir séparément ?</span></div>
+<div class="ph-row"><span class="ph-role">Hébergement</span><span class="ph-text">À quel type d'hébergement puis-je m'attendre à ce tarif ?</span></div>
+<div class="ph-row"><span class="ph-role">Services</span><span class="ph-text">Y a-t-il des activités ou excursions proposées sur place, et sont-elles comprises ?</span></div>
+<div class="ph-row"><span class="ph-role">Réservation</span><span class="ph-text">Quel est le délai d'annulation sans frais si mes dates venaient à changer ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#E6F1FB;color:#185FA5">Agence de voyages</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Réception d'hôtel</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Croisière</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Office du tourisme</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Camping</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — Agence de voyages (Canada)</div>
+      <div class="ex-text">— Bonjour, je souhaite organiser un premier voyage au Canada et j'aurais quelques questions.
+— Bien sûr, je vous écoute.
+— Quelles destinations conseillez-vous pour une première visite — Montréal, Québec ou Vancouver ?
+— Avez-vous des forfaits tout inclus, et dans cette gamme de prix, qu'est-ce qui est compris exactement ?
+— Est-ce que les vols depuis Paris sont inclus, ou dois-je les réserver séparément ?
+— En ce qui concerne l'hébergement, à quel type d'hôtel puis-je m'attendre ?
+— Y a-t-il des excursions ou activités proposées sur place ?
+— Et quel est le délai d'annulation sans frais si mes dates changent ?</div>
+      <div class="ex-note">Montrer de l'intérêt entre les questions : acquiescer avec « Je vois… », « C'est intéressant… »</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#E1F5EE;color:#0F6E56">2</div>
+    <div class="s-info"><div class="s-name">Logement et Déménagement</div><div class="s-sub">Location, colocation, achat, vie en immeuble (~290 scénarios)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#E1F5EE;color:#0F6E56">Catégorie n°2 — très fréquente</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">1</div><div class="step-x">Saluer et se présenter brièvement en rapport avec l'annonce vue</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">2</div><div class="step-x">Questions sur le logement lui-même (superficie, état, équipements)</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">3</div><div class="step-x">Questions sur le quartier et l'environnement (transports, commerces)</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">4</div><div class="step-x">Questions sur les conditions pratiques (loyer, charges, disponibilité)</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">5</div><div class="step-x">Questions sur la vie quotidienne ou règles de colocation</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">6</div><div class="step-x">Clore poliment en demandant la marche à suivre</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Ouverture</span><span class="ph-text">Bonjour, je me présente — je suis intéressé(e) par votre annonce et j'aurais quelques questions, si vous le permettez.</span></div>
+<div class="ph-row"><span class="ph-role">Logement</span><span class="ph-text">Pourriez-vous me décrire le logement plus précisément — superficie, état général, équipements inclus ?</span></div>
+<div class="ph-row"><span class="ph-role">Quartier</span><span class="ph-text">Et en ce qui concerne le quartier, est-il bien desservi par les transports en commun ?</span></div>
+<div class="ph-row"><span class="ph-role">Conditions</span><span class="ph-text">Pourriez-vous me préciser le montant du loyer ainsi que les charges — et si un dépôt de garantie est exigé ?</span></div>
+<div class="ph-row"><span class="ph-role">Colocation</span><span class="ph-text">Comment se passe la vie en colocation au quotidien — y a-t-il des règles particulières à respecter ?</span></div>
+<div class="ph-row"><span class="ph-role">Disponibilité</span><span class="ph-text">Le logement est-il disponible immédiatement, ou à partir d'une date précise ?</span></div>
+<div class="ph-row"><span class="ph-role">Suite</span><span class="ph-text">Si tout correspond à mes attentes, quelle serait la procédure pour formaliser ma candidature ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#E1F5EE;color:#0F6E56">Location chambre</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Colocation</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Achat appartement</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Vie en immeuble</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Vente de mobilier</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — Visite d'un appartement en colocation</div>
+      <div class="ex-text">— Bonjour, j'appelle suite à votre annonce pour la chambre à louer. J'aurais quelques questions si vous avez un moment.
+— Bien sûr, je vous en prie.
+— Pourriez-vous me décrire la chambre plus précisément — superficie et ameublement inclus ?
+— En ce qui concerne les parties communes, sont-elles partagées avec d'autres colocataires ?
+— Pourriez-vous me préciser le loyer exact et si les charges sont comprises ?
+— Y a-t-il des règles particulières à respecter au quotidien — horaires, invités ?
+— Le logement est-il disponible immédiatement ?
+— Et si ma candidature vous intéresse, comment procède-t-on ensuite ?</div>
+      <div class="ex-note">5 à 6 questions variées · mélanger formes directe et indirecte · éviter les questions fermées en série</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FAEEDA;color:#854F0B">3</div>
+    <div class="s-info"><div class="s-name">Emploi et Vie Professionnelle</div><div class="s-sub">Recrutement, intégration, conseils de carrière (~180 scénarios)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FAEEDA;color:#854F0B">Catégorie n°5 — régulièrement présente</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">1</div><div class="step-x">Expliquer votre situation (chercheur d'emploi, nouvel arrivant dans l'entreprise...)</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">2</div><div class="step-x">Questions sur le poste et les missions concrètes</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">3</div><div class="step-x">Questions sur les conditions (horaires, salaire, avantages)</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">4</div><div class="step-x">Questions sur l'environnement de travail et l'équipe</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">5</div><div class="step-x">Questions sur la formation et les perspectives d'évolution</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">6</div><div class="step-x">Clore en demandant les prochaines étapes</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Situation</span><span class="ph-text">Je suis en recherche d'emploi et votre offre m'intéresse beaucoup — pourriez-vous me donner plus de détails ?</span></div>
+<div class="ph-row"><span class="ph-role">Missions</span><span class="ph-text">En quoi consisteraient concrètement les missions au quotidien pour ce poste ?</span></div>
+<div class="ph-row"><span class="ph-role">Horaires</span><span class="ph-text">Pourriez-vous me préciser les horaires de travail — est-ce un poste à temps plein ou partiel ?</span></div>
+<div class="ph-row"><span class="ph-role">Salaire</span><span class="ph-text">Est-il possible d'avoir une idée de la fourchette de rémunération proposée ?</span></div>
+<div class="ph-row"><span class="ph-role">Équipe</span><span class="ph-text">Comment est organisée l'équipe — combien de personnes travaillent dans ce département ?</span></div>
+<div class="ph-row"><span class="ph-role">Formation</span><span class="ph-text">Y a-t-il une période de formation ou d'intégration prévue pour les nouveaux arrivants ?</span></div>
+<div class="ph-row"><span class="ph-role">Suite</span><span class="ph-text">Si ma candidature retient votre attention, quelles seraient les prochaines étapes ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FAEEDA;color:#854F0B">Recrutement</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Premier jour de travail</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Conseils entretien</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Changement d'emploi</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Intégration</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — Premier jour dans une entreprise canadienne</div>
+      <div class="ex-text">— Bonjour, c'est mon premier jour ici — j'aurais quelques questions pour mieux m'intégrer, si vous avez un moment.
+— Bien sûr, bienvenue !
+— Comment est organisée la journée de travail ici — y a-t-il des horaires fixes ?
+— En ce qui concerne la pause déjeuner, y a-t-il une cantine ou un espace repas ?
+— Comment fonctionne la communication avec les collègues — plutôt par email ou par messagerie interne ?
+— Y a-t-il une période d'intégration ou de formation prévue pour les nouveaux ?
+— Et pour les questions administratives, vers qui dois-je me tourner ?</div>
+      <div class="ex-note">Montrer de l'enthousiasme et de la curiosité — c'est valorisé par le correcteur</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FBEAF0;color:#993556">4</div>
+    <div class="s-info"><div class="s-name">Loisirs, Culture et Événements</div><div class="s-sub">Cours, fêtes, musées, bibliothèques, activités municipales (~245 + 260 scénarios)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FBEAF0;color:#993556">Catégories 3 et 4 combinées — très fréquentes</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">1</div><div class="step-x">Établir le contexte (ami, professionnel de la mairie, professeur...)</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">2</div><div class="step-x">Questions sur le contenu ou programme de l'activité</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">3</div><div class="step-x">Questions sur le niveau requis et le public cible</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">4</div><div class="step-x">Questions pratiques : horaires, lieu, fréquence</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">5</div><div class="step-x">Questions sur le coût et les modalités d'inscription</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">6</div><div class="step-x">Clore en demandant comment s'inscrire ou participer</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Introduction</span><span class="ph-text">On m'a parlé de cette activité et ça m'intéresse beaucoup — pourriez-vous m'en dire plus ?</span></div>
+<div class="ph-row"><span class="ph-role">Contenu</span><span class="ph-text">En quoi consistent exactement les cours ou les séances — quel est le programme type ?</span></div>
+<div class="ph-row"><span class="ph-role">Niveau</span><span class="ph-text">Est-ce que cette activité est ouverte aux débutants, ou un niveau minimal est-il requis ?</span></div>
+<div class="ph-row"><span class="ph-role">Horaires</span><span class="ph-text">À quelle fréquence ont lieu les séances, et à quels horaires habituellement ?</span></div>
+<div class="ph-row"><span class="ph-role">Tarifs</span><span class="ph-text">Quel est le coût — abonnement mensuel, tarif à la séance, ou réductions disponibles ?</span></div>
+<div class="ph-row"><span class="ph-role">Inscription</span><span class="ph-text">Comment se passe l'inscription — en ligne ou en personne ?</span></div>
+<div class="ph-row"><span class="ph-role">Ambiance</span><span class="ph-text">Comment décririez-vous l'ambiance — plutôt sérieuse et compétitive, ou conviviale et détendue ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FBEAF0;color:#993556">Cours de musique</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Cours de théâtre / dessin</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Activités de la mairie</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Organiser une fête</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Bibliothèque</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — Cours de théâtre (ami qui y participe déjà)</div>
+      <div class="ex-text">— Tu m'as dit que tu prenais des cours de théâtre — ça me tenterait bien ! Tu peux m'en dire plus ?
+— Avec plaisir !
+— En quoi consistent exactement les cours — c'est plutôt technique ou plus ludique ?
+— C'est ouvert aux vrais débutants ou il faut déjà avoir une expérience ?
+— À quelle fréquence ont lieu les séances et à quels horaires habituellement ?
+— Et côté budget, ça représente combien par mois environ ?
+— L'ambiance est comment — c'est une grande troupe ou un groupe intime ?</div>
+      <div class="ex-note">Questions courtes et naturelles à l'oral — ne pas réciter une liste préparée à l'avance</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FAECE7;color:#993C1D">5</div>
+    <div class="s-info"><div class="s-name">Services de Proximité et Entraide</div><div class="s-sub">Baby-sitting, pet-sitting, bénévolat, covoiturage (~135 scénarios)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FAECE7;color:#993C1D">Catégorie n°7 — régulièrement présente</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">1</div><div class="step-x">Expliquer votre besoin ou intérêt pour le service</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">2</div><div class="step-x">Questions sur les dates et disponibilités</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">3</div><div class="step-x">Questions sur les habitudes ou règles spécifiques</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">4</div><div class="step-x">Questions sur l'expérience de la personne</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">5</div><div class="step-x">Questions sur la rémunération ou contrepartie</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">6</div><div class="step-x">Rassurances finales et démarches pour confirmer</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Intérêt</span><span class="ph-text">Je serais potentiellement intéressé(e) — pourriez-vous m'expliquer comment cela fonctionne ?</span></div>
+<div class="ph-row"><span class="ph-role">Dates</span><span class="ph-text">Seriez-vous disponible pour les dates du [DATE] au [DATE] ?</span></div>
+<div class="ph-row"><span class="ph-role">Habitudes</span><span class="ph-text">Y a-t-il des habitudes particulières ou des règles importantes à connaître ?</span></div>
+<div class="ph-row"><span class="ph-role">Expérience</span><span class="ph-text">Avez-vous déjà rendu ce type de service — quelle est votre expérience dans ce domaine ?</span></div>
+<div class="ph-row"><span class="ph-role">Tarif</span><span class="ph-text">En ce qui concerne la rémunération ou contrepartie, comment fonctionne-t-on habituellement ?</span></div>
+<div class="ph-row"><span class="ph-role">Urgence</span><span class="ph-text">En cas de problème ou d'urgence, comment vous contacter facilement ?</span></div>
+<div class="ph-row"><span class="ph-role">Confirmation</span><span class="ph-text">Si tout me convient, comment procède-t-on pour confirmer cet arrangement ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FAECE7;color:#993C1D">Pet-sitting</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Baby-sitting</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Bénévolat</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Covoiturage</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Petits travaux</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — Pet-sitting (voisin qui part en vacances)</div>
+      <div class="ex-text">— Bonjour, vous m'avez mentionné que vous cherchiez quelqu'un pour votre chien pendant vos vacances.
+— Oui, exactement !
+— Pour quelles dates exactement — du combien au combien ?
+— Votre chien a quel âge et quelle race — il est habitué aux inconnus ?
+— Y a-t-il des habitudes particulières à respecter — promenades, alimentation, médicaments ?
+— Il dort où habituellement — chez vous ou viendrait-il chez moi ?
+— En cas d'urgence vétérinaire, vous avez un médecin attitré ?</div>
+      <div class="ex-note">Montrer de l'empathie et de la responsabilité — le correcteur apprécie les questions pratiques</div>
+    </div>
+  </div>
+</details>
+
+    </div><!-- s2a -->
+    <div class="sub-content s2b">
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#1D9E75"></div>
+    <div class="s-info"><div class="s-name">Voyages et Tourisme (~420 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #1D9E75">« Je travaille dans une agence de voyage, vous voulez voyager au Canada. Posez-moi des questions (destinations, tarifs, services, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Je suis votre collègue et je reviens d'un voyage au Canada. Vous souhaitez en savoir plus et vous me posez des questions (activités, transport, loisirs, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Je suis votre ami(e). J'ai fait une croisière en bateau, vous voulez en faire une. Posez-moi des questions (tarifs, activités, services, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Je travaille dans un office du tourisme au Québec. Vous souhaitez visiter un parc à thème. Vous me posez des questions (horaires, tarifs, restauration, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Vous êtes à l'hôtel pour quelques jours. Je suis responsable de l'accueil. Vous me posez des questions pour organiser votre séjour (petit-déjeuner, Internet, transports, activités, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#185FA5"></div>
+    <div class="s-info"><div class="s-name">Habitation et Déménagement (~290 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #185FA5">« Je propose une chambre à louer dans mon appartement. Vous avez vu mon annonce. Vous venez visiter et vous me posez des questions (loyer, meubles, vie en commun, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Je suis agent immobilier. Vous cherchez à acheter un appartement. Vous me posez des questions sur l'appartement (superficie, prix, quartier, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Je suis votre voisin(e). Je déménage bientôt à l'étranger et souhaite vendre mon mobilier. Vous me posez des questions (prix, état, dimensions, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Je suis votre ami(e). Je vais déménager le week-end prochain. Vous allez participer au déménagement et vous me posez des questions sur l'organisation (horaires, adresse, transport, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Je suis le gardien de votre immeuble. Vous venez de vous installer. Vous me posez des questions sur la vie de l'immeuble (habitants, règles, équipements, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#BA7517"></div>
+    <div class="s-info"><div class="s-name">Événements et Célébrations (~260 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #BA7517">« Je suis votre ami(e). Mon anniversaire arrive bientôt, vous souhaitez organiser une fête et vous m'interrogez sur les détails (endroit, heures, invités, ambiance, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Je suis l'organisateur(trice) d'un mariage. Vous souhaitez louer nos services. Vous me posez des questions sur les prestations (lieu, menu, animations, tarifs, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Je suis votre voisin(e). Nous organisons une fête de quartier ce week-end. Vous me posez des questions (programme, horaires, participation, tenue, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Je suis responsable d'un service de traiteur. Vous préparez une fête d'anniversaire. Vous me posez des questions sur nos prestations (menu, tarifs, livraison, conditions, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Je suis votre collègue. Nous organisons une fête de départ à la retraite. Vous me posez des questions pour participer à l'organisation (lieu, budget, cadeaux, invités, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#534AB7"></div>
+    <div class="s-info"><div class="s-name">Cours et Ateliers Éducatifs (~245 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #534AB7">« Je suis professeur de guitare. Vous souhaitez prendre des leçons. Vous me posez des questions (horaires, tarifs, genre musical, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Je travaille au service culturel de la mairie. Vous souhaitez vous informer sur les activités culturelles. Vous me posez des questions (activités, fréquence, tarifs, durée, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Je suis bibliothécaire. Vous souhaitez devenir membre. Vous me demandez des informations (inscription, services, horaires, événements) »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Je suis votre ami(e). Je prends des cours de théâtre toutes les semaines. Vous voulez vous inscrire. Vous me posez des questions (tarifs, horaires, organisation, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Je suis votre voisin(e). Je donne des cours de cuisine le week-end. Vous êtes intéressé(e). Vous me posez des questions (plats, matériel, participants, tarifs, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#D85A30"></div>
+    <div class="s-info"><div class="s-name">Emploi et Vie Professionnelle (~180 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #D85A30">« Je suis un(e) de vos collègues. Vous êtes nouveau(elle) dans l'entreprise. Vous me posez des questions sur l'organisation (travail, collègues, restauration, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Je suis un(e) ami(e). Vous allez à un entretien professionnel la semaine prochaine. Demandez-moi des conseils pour réussir (comportement, vêtements, préparatifs, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Je suis le gérant d'un restaurant et je recrute. Vous souhaitez postuler et vous me demandez des informations (poste, horaires, salaire, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Je suis votre ancien(ne) collègue. Je viens de commencer un nouveau travail. Vous souhaitez changer d'emploi. Vous me posez des questions (missions, salaire, collègues, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Je suis votre collègue. C'est votre premier jour de travail dans une entreprise canadienne. Vous me posez des questions (organisation, collègues, repas, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#639922"></div>
+    <div class="s-info"><div class="s-name">Sports et Bien-être (~140 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #639922">« Je travaille à l'accueil du club de sport de votre quartier. Vous ne savez pas quel sport choisir. Vous me posez des questions (activités, horaires, tarifs, équipements, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Je suis votre ami(e). Je fais partie d'un club de randonnée. Vous êtes intéressé(e). Vous me posez des questions (participants, lieux, niveaux, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Je suis votre voisin(e) et je pratique la natation à la piscine municipale. Vous souhaitez en savoir plus (horaires, prix, équipements, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Je suis professeur de sport (yoga, gym…). J'organise un stage le week-end prochain. Vous êtes intéressé(e). Vous me posez des questions (lieu, niveau, participants, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Un(e) collègue organise des séances de yoga pour les employé(e)s. Vous souhaitez y participer. Vous lui posez des questions (horaires, emplacement, équipements) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#888780"></div>
+    <div class="s-info"><div class="s-name">Services de Proximité et Entraide (~135 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #888780">« Je suis votre voisin(e). Je pars en vacances. J'aimerais que vous vous occupiez de mon animal. Vous me posez des questions pour décider (dates, habitudes, règles, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Je suis votre ami(e). J'emploie un(e) baby-sitter toutes les semaines. Vous me posez des questions sur ma baby-sitter (disponibilité, tarifs, activités, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Je suis agent d'accueil dans un bureau sur les associations de la ville. Vous voulez être bénévole. Vous me posez des questions (types, activités, publics, planning, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Je suis votre voisin(e). Je connais quelqu'un qui fait des petits travaux chez les particuliers. Vous êtes intéressé(e). Vous me posez des questions (expérience, disponibilité, tarif, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Je suis un(e) voisin(e) et je propose de partager mes trajets en voiture. Vous êtes intéressé(e). Vous me posez des questions (prix, heures, fonctionnement, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993556"></div>
+    <div class="s-info"><div class="s-name">Ventes, Commerce et Transports (~130 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #993556">« Je produis des fruits et légumes biologiques et les vends directement aux particuliers. Vous êtes intéressé(e) et vous me posez des questions (prix, produits, livraison, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993556">« Je suis votre collègue et je vends ma voiture. Vous me demandez des informations (prix, état général, options, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993556">« Je fais partie du service des transports en commun de la ville. Vous venez d'arriver ici. Vous me posez des questions (moyens de transport, prix, horaires, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993556">« Je travaille dans un service de location de vélos au Canada. Vous souhaitez louer un vélo pour visiter la ville. Vous me posez des questions (types, conditions, tarifs, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993556">« Je travaille dans une auto-école. Vous souhaitez apprendre à conduire. Vous me posez des questions (tarifs, durée, documents nécessaires, etc.) »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993C1D"></div>
+    <div class="s-info"><div class="s-name">Santé et Services Publics (~55 scénarios)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #993C1D">« Je suis votre voisin(e). Vous venez de vous installer au Québec. Vous souhaitez prendre un rendez-vous médical. Vous me posez des questions sur les médecins (lieux, tarifs, spécialisations, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Je suis l'assistante de votre médecin de famille. Il est en vacances et remplacé par un autre médecin. Vous m'appelez pour obtenir des informations. Posez-moi des questions »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Vous circulez en voiture au Canada, votre voiture tombe en panne. Vous appelez votre compagnie d'assurance pour savoir comment elle peut vous aider (remorquage, réparations, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Je travaille à l'accueil de la mairie. Vous venez de vous installer au Canada. Vous me demandez des renseignements (logement, formalités, services municipaux, etc.) »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Je suis employé(e) à la ludothèque de votre ville. Vous souhaitez adhérer et vous me posez des questions (horaires, prix, jeux disponibles, etc.) »</div></div>
+  </div>
+</details>
+    </div><!-- s2b -->
+    <div class="sub-content s2c">
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#1D9E75"></div>
+    <div class="s-info"><div class="s-name">Voyages, Tourisme et Loisirs</div></div>
+    <span class="s-count">~420 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Agence de voyages</div><div class="sc-d">Destinations, forfaits, tarifs</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Conseils d'un ami/collègue voyageur</div><div class="sc-d">Retour de vacances — mer, montagne, neige</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Réception d'hôtel</div><div class="sc-d">Petit-déjeuner, Wi-Fi, services locaux</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Office du tourisme</div><div class="sc-d">Musées, zoos, parcs, roteiros économiques</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Croisière</div><div class="sc-d">Tarifs, activités à bord, services inclus</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Camping</div><div class="sc-d">Réservation, équipements, règles du site</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#185FA5"></div>
+    <div class="s-info"><div class="s-name">Habitation et Déménagement</div></div>
+    <span class="s-count">~290 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Location de chambre / appartement</div><div class="sc-d">Loyer, meubles, quartier, charges</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Colocation</div><div class="sc-d">Règles de la maison, profil des colocataires</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Achat immobilier</div><div class="sc-d">Superficie, prix, quartier</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Aide au déménagement</div><div class="sc-d">Horaires, adresse, transport de meubles</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Vie en immeuble</div><div class="sc-d">Règles du bâtiment, voisins, équipements</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Vente de mobilier (départ à l'étranger)</div><div class="sc-d">Prix, état, dimensions</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#BA7517"></div>
+    <div class="s-info"><div class="s-name">Événements et Célébrations</div></div>
+    <span class="s-count">~260 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Organisation d'anniversaire</div><div class="sc-d">Lieu, invités, ambiance, horaires</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Mariage</div><div class="sc-d">Prestations, menu, animations, tarifs</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Fête de quartier (fête des voisins)</div><div class="sc-d">Programme, participation, tenue</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Fête de départ à la retraite</div><div class="sc-d">Budget, cadeaux, organisation</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Étiquette et cadeaux</div><div class="sc-d">Tenue, liste, invités</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#534AB7"></div>
+    <div class="s-info"><div class="s-name">Cours, Ateliers et Loisirs Éducatifs</div></div>
+    <span class="s-count">~245 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Cours de musique (guitare, piano…)</div><div class="sc-d">Horaires, tarifs, niveau requis</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Cours de théâtre / dessin / photo</div><div class="sc-d">Programme, inscription, ambiance</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Cours de cuisine</div><div class="sc-d">Plats, matériel, participants</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Activités culturelles de la mairie</div><div class="sc-d">Sport, spectacles, musées, tarifs</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Bibliothèque municipale</div><div class="sc-d">Inscription, horaires, événements</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#D85A30"></div>
+    <div class="s-info"><div class="s-name">Emploi et Vie Professionnelle</div></div>
+    <span class="s-count">~180 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Recrutement (restaurant, commerce…)</div><div class="sc-d">Poste, horaires, salaire</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Intégration (premier jour)</div><div class="sc-d">Organisation, équipe, cantine</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Conseils pour un entretien</div><div class="sc-d">Comportement, vêtements, préparation</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Changement d'emploi</div><div class="sc-d">Salaire, collègues, missions</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Agences de recrutement</div><div class="sc-d">Offres disponibles, conditions</div></div><span class="occ ol">Moins fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#639922"></div>
+    <div class="s-info"><div class="s-name">Sports et Bien-être</div></div>
+    <span class="s-count">~140 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Club de sport / salle de fitness</div><div class="sc-d">Activités, horaires, tarifs, équipements</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Club de randonnée</div><div class="sc-d">Participants, lieux, niveau requis</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Piscine municipale</div><div class="sc-d">Horaires, tarifs, équipements</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Stage sportif (yoga, gym…)</div><div class="sc-d">Lieu, niveau, programme</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#888780"></div>
+    <div class="s-info"><div class="s-name">Services de Proximité et Entraide</div></div>
+    <span class="s-count">~135 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Pet-sitting</div><div class="sc-d">Dates, habitudes de l'animal, règles</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Baby-sitting</div><div class="sc-d">Disponibilité, tarifs, activités</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Bénévolat en association</div><div class="sc-d">Types, activités, planning</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Covoiturage</div><div class="sc-d">Prix, horaires, fonctionnement</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Petits services à domicile</div><div class="sc-d">Expérience, disponibilité, tarif</div></div><span class="occ ol">Moins fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993556"></div>
+    <div class="s-info"><div class="s-name">Ventes, Commerce et Transports</div></div>
+    <span class="s-count">~130 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Vente de voiture / vélo</div><div class="sc-d">Prix, état général, options</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Transports en commun</div><div class="sc-d">Passes, horaires, tarifs</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Location de vélos</div><div class="sc-d">Types, conditions, tarifs</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Produits biologiques</div><div class="sc-d">Prix, produits disponibles, livraison</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Auto-école</div><div class="sc-d">Tarifs, durée, documents</div></div><span class="occ ol">Moins fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993C1D"></div>
+    <div class="s-info"><div class="s-name">Santé et Services Publics</div></div>
+    <span class="s-count">~55 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Médecins et rendez-vous médicaux</div><div class="sc-d">Lieux, tarifs, spécialisations</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Assurance véhicule</div><div class="sc-d">Assistance en cas de panne</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Mairie (formalités administratives)</div><div class="sc-d">Logement, services municipaux</div></div><span class="occ ol">Moins fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Ludothèque</div><div class="sc-d">Horaires, adhésion, jeux disponibles</div></div><span class="occ ol">Moins fréquent</span></li></ul>
+  </div>
+</details>
+    </div><!-- s2c -->
+
+    <div class="sub-content s2d">
+      <div class="exp2-title">📌 Estruturas avançadas para construir suas perguntas</div>
+
+      <div class="exp2-grid">
+        <div class="exp2-card">
+          <h4>📌 Introduzir a pergunta</h4>
+          <p>Pourriez-vous me dire… ?</p>
+          <p>J'aimerais savoir…</p>
+          <p>Est-ce que vous pouvez m'expliquer… ?</p>
+          <p>Est-ce qu'il y a… ?</p>
+          <p>Faut-il… ?</p>
+        </div>
+        <div class="exp2-card">
+          <h4>🔍 Pedir detalhes</h4>
+          <p>Pourriez-vous me préciser… ?</p>
+          <p>J'aimerais savoir si vous pourriez…</p>
+          <p>Auriez-vous des informations concernant… ?</p>
+          <p>Je me demandais si vous pourriez…</p>
+          <p>Pourriez-vous me confirmer si… ?</p>
+        </div>
+        <div class="exp2-card">
+          <h4>📋 Pedir condições</h4>
+          <p>Dans quelles conditions… ?</p>
+          <p>Quelles sont les démarches à suivre… ?</p>
+          <p>Quels sont les documents nécessaires… ?</p>
+          <p>Auriez-vous la possibilité de… ?</p>
+          <p>Est-ce que c'est possible de… ?</p>
+        </div>
+        <div class="exp2-card">
+          <h4>⏱️ Pedir prazo / horário</h4>
+          <p>Combien coûte… ?</p>
+          <p>À quelle heure… ?</p>
+          <p>À partir de quand… ?</p>
+          <p>Combien de temps… ?</p>
+          <p>Jusqu'à quand… ?</p>
+        </div>
+        <div class="exp2-card">
+          <h4>📄 Pedir documentos</h4>
+          <p>Quels documents… ?</p>
+          <p>Quelles sont les conditions… ?</p>
+          <p>J'aimerais savoir dans quelles conditions…</p>
+          <p>Quelles sont les démarches à suivre pour… ?</p>
+        </div>
+        <div class="exp2-card">
+          <h4>👤 Versão informal (avec TU)</h4>
+          <p>Tu peux me dire… ?</p>
+          <p>Est-ce que tu sais… ?</p>
+          <p>J'aimerais savoir…</p>
+          <p>Est-ce que tu pourrais… ?</p>
+          <p>Pourrais-tu me préciser… ?</p>
+          <p>Aurais-tu plus d'infos sur… ?</p>
+        </div>
+      </div>
+
+      <div class="exp2-title">🗂️ Perguntas por tema</div>
+      <div class="exp2-acc-grid">
+        <div>
+          <div class="exp2-acc-item">
+            <button class="exp2-acc-btn" onclick="toggleExp2('logement')">🏠 1. Logement / Hébergement <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-logement">
+              <ul class="exp2-q-list">
+                <li>Quel type de logement proposez-vous ? (appartement, maison…)</li>
+                <li>Où se situe exactement le logement ?</li>
+                <li>Quel est le montant du loyer ?</li>
+                <li>Les charges sont-elles comprises dans le loyer ?</li>
+                <li>Quel est le montant du dépôt de garantie ?</li>
+                <li>À partir de quand le logement est-il disponible ?</li>
+                <li>Quelle est la durée minimale du contrat ?</li>
+                <li>Quels documents dois-je fournir pour signer le contrat ?</li>
+                <li>Avez-vous besoin d'un garant ?</li>
+                <li>Est-il possible de visiter le logement avant de signer le contrat ?</li>
+                <li>Le logement est-il meublé ?</li>
+                <li>Y a-t-il des commerces ou des transports à proximité ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('emploi')">💼 2. Emploi / Recrutement <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-emploi">
+              <ul class="exp2-q-list">
+                <li>Quel poste proposez-vous exactement ?</li>
+                <li>Quelles seront mes principales responsabilités ?</li>
+                <li>Quel profil recherchez-vous pour ce poste ?</li>
+                <li>Quel est le salaire proposé ?</li>
+                <li>Quels sont les horaires de travail ?</li>
+                <li>Le poste est-il à temps plein ou à temps partiel ?</li>
+                <li>Quelles sont les conditions de travail ? (télétravail, avantages…)</li>
+                <li>Quels documents dois-je envoyer pour postuler ?</li>
+                <li>Comment se déroule le processus de recrutement ?</li>
+                <li>Quand puis-je postuler ? Jusqu'à quelle date ?</li>
+                <li>Y a-t-il une période d'essai ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('cours')">🎓 3. Cours / Formation <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-cours">
+              <ul class="exp2-q-list">
+                <li>Quel type de formation proposez-vous ?</li>
+                <li>À quel niveau s'adresse cette formation ?</li>
+                <li>Combien de temps dure la formation ?</li>
+                <li>Quels sont les horaires des cours ?</li>
+                <li>Quel est le prix de la formation ?</li>
+                <li>Le matériel et les livres sont-ils inclus ?</li>
+                <li>Y a-t-il des réductions pour les étudiants ou les demandeurs d'emploi ?</li>
+                <li>Comment se déroulent les cours ? (en présentiel, en ligne…)</li>
+                <li>Reçoit-on un certificat ou un diplôme à la fin ?</li>
+                <li>Quelles sont les conditions d'inscription ?</li>
+                <li>Jusqu'à quand puis-je m'inscrire ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('transport')">✈️ 4. Transport / Voyage <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-transport">
+              <ul class="exp2-q-list">
+                <li>Quelles destinations proposez-vous ?</li>
+                <li>Quels sont les horaires disponibles ?</li>
+                <li>Quel est le prix du billet / de l'abonnement ?</li>
+                <li>Y a-t-il des réductions pour les étudiants / les seniors ?</li>
+                <li>Comment puis-je acheter un billet / un abonnement ?</li>
+                <li>Puis-je modifier ou annuler ma réservation ?</li>
+                <li>Quels sont les moyens de paiement acceptés ?</li>
+                <li>Combien de temps dure le trajet ?</li>
+                <li>Quels services sont inclus ? (bagages, Wi-Fi, repas…)</li>
+                <li>À partir de quand puis-je réserver ?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="exp2-acc-item">
+            <button class="exp2-acc-btn" onclick="toggleExp2('services')">📱 5. Services (téléphonie, internet…) <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-services">
+              <ul class="exp2-q-list">
+                <li>Quel service proposez-vous exactement ?</li>
+                <li>Quels sont les forfaits / offres disponibles ?</li>
+                <li>Quel est le prix par mois ?</li>
+                <li>Les frais d'installation sont-ils inclus ?</li>
+                <li>Y a-t-il des frais supplémentaires ?</li>
+                <li>Quels sont les moyens de paiement acceptés ?</li>
+                <li>Puis-je résilier le contrat à tout moment ?</li>
+                <li>Quels documents sont nécessaires pour souscrire ?</li>
+                <li>Quels sont les délais d'activation du service ?</li>
+                <li>À qui puis-je m'adresser en cas de problème ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('activites')">⚽ 6. Activités / Loisirs / Sport <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-activites">
+              <ul class="exp2-q-list">
+                <li>Quelles activités proposez-vous ?</li>
+                <li>À qui s'adressent ces activités ? (âge, niveau…)</li>
+                <li>Quels sont les horaires des activités ?</li>
+                <li>Quel est le prix ?</li>
+                <li>Le matériel est-il fourni ?</li>
+                <li>Y a-t-il des frais d'inscription ?</li>
+                <li>Comment puis-je m'inscrire ?</li>
+                <li>Y a-t-il un engagement pour une durée minimale ?</li>
+                <li>Puis-je faire un cours d'essai ?</li>
+                <li>Où se déroulent les activités ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('evenements')">🎟️ 7. Événements (concert, festival…) <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-evenements">
+              <ul class="exp2-q-list">
+                <li>Où et quand a lieu l'événement ?</li>
+                <li>Quel est le prix des billets ?</li>
+                <li>Comment puis-je acheter les billets ?</li>
+                <li>Y a-t-il des réductions pour les étudiants ?</li>
+                <li>Quelle est la durée de l'événement ?</li>
+                <li>Y a-t-il un âge minimum ?</li>
+                <li>Est-ce qu'il y a un parking à proximité ?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="exp2-acc-item" style="margin-top:10px">
+            <button class="exp2-acc-btn" onclick="toggleExp2('achat')">🛒 8. Achat (produit, voiture, meuble…) <span class="exp2-acc-icon">+</span></button>
+            <div class="exp2-acc-content" id="exp2-achat">
+              <ul class="exp2-q-list">
+                <li>Quel produit proposez-vous ?</li>
+                <li>Quelles sont les caractéristiques ?</li>
+                <li>Quel est le prix ?</li>
+                <li>Y a-t-il une garantie ? Si oui, pour combien de temps ?</li>
+                <li>Quelles sont les conditions de livraison ?</li>
+                <li>Puis-je retourner le produit s'il ne me convient pas ?</li>
+                <li>Quels moyens de paiement acceptez-vous ?</li>
+                <li>Quand puis-je recevoir le produit ?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp2-bottom">
+        <div class="exp2-bottom-card violet">
+          <h4>🔁 Réagir et relancer (CLB 8)</h4>
+          <ul>
+            <li>✅ D'accord, merci pour cette information.</li>
+            <li>✅ Je comprends. C'est très clair, merci.</li>
+            <li>✅ Pourriez-vous m'en dire un peu plus ?</li>
+            <li>✅ Je vois. Et concernant… ?</li>
+            <li>✅ Auriez-vous plus de détails sur… ?</li>
+            <li>✅ Dans quelles conditions… ?</li>
+            <li>✅ Parfait. J'ai une dernière question…</li>
+          </ul>
+        </div>
+        <div class="exp2-bottom-card mint">
+          <h4>🏁 Pour finir</h4>
+          <p>Merci beaucoup pour toutes ces informations, c'était très utile.<br>Je vais y réfléchir et je vous recontacterai bientôt si j'ai d'autres questions.<br>Bonne journée / Bonne soirée !</p>
+          <h4>⭐ Conseils CLB 8</h4>
+          <ul>
+            <li>★ Posez des questions variées et précises.</li>
+            <li>★ Utilisez des structures variées et un vocabulaire riche.</li>
+            <li>★ Relancez la conversation en fonction des réponses.</li>
+            <li>★ Soyez naturel(le), poli(e) et à l'écoute.</li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- s2d -->
+
+  </div><!-- tab t2 -->
+
+  <!-- ======== TÂCHE 3 ======== -->
+  <div class="tab-content t3">
+    <div class="info-row">
+      <div class="ic"><div class="l">Format</div><div class="v">Monologue + échange &middot; 3–5 min</div></div>
+      <div class="ic"><div class="l">Objectif</div><div class="v">Défendre un point de vue argumenté</div></div>
+      <div class="ic"><div class="l">CLB 8</div><div class="v">Concession + exemples + nuance</div></div>
+    </div>
+    <div class="tip b">
+      <h3>Stratégie CLB 8 — Tâche 3</h3>
+      <p>Le correcteur attend : une <em>prise de position claire dès le début</em>, des <em>arguments illustrés par des exemples concrets</em>, une <em>concession sincère</em> à l'opinion adverse, et une <em>conclusion qui élargit le débat</em>. Utiliser le plan <em>Thèse → Antithèse → Synthèse</em> même à l'oral.</p>
+    </div>
+
+    <!-- Fórmulas EO T3 -->
+    <div class="formula-section">
+      <div class="formula-section-title">🎯 Fórmulas prontas — EO Tâche 3</div>
+      <div class="formula-tip-eo"><strong>Estratégia de ouro:</strong> Decore estas frases até sair automático. No exame, não pense — use. Elas valem pontos garantidos de vocabulário e gramática.</div>
+      <div class="formula-grid-eo">
+        <div class="formula-card-eo">
+          <div class="formula-head-eo" style="background:#993C1D">🎤 EO T3 — Argumentação Oral</div>
+          <div class="formula-body-eo">
+            <div class="formula-row-eo"><div class="formula-fn-eo">Posição</div><div class="formula-t-eo">Je pense que / J'estime que / Je crois que… <span class="formula-pt-eo">Penso que / Considero que…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Arg 1</div><div class="formula-t-eo">Premièrement, il me semble essentiel de… <span class="formula-pt-eo">Primeiramente, parece-me essencial…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Arg 2</div><div class="formula-t-eo">De plus, on peut observer que… <span class="formula-pt-eo">Além disso, podemos observar que…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Concessão</div><div class="formula-t-eo">Certes… cependant… en réalité… <span class="formula-pt-eo">Certamente… porém… na realidade…</span></div></div>
+            <div class="formula-row-eo"><div class="formula-fn-eo">Conclusão</div><div class="formula-t-eo">En définitive, je maintiens que… <span class="formula-pt-eo">Em definitivo, mantenho que…</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input class="sub-radio" type="radio" name="sub3" id="s3a" checked>
+    <input class="sub-radio" type="radio" name="sub3" id="s3b">
+    <input class="sub-radio" type="radio" name="sub3" id="s3c">
+    <div class="sub-labels">
+      <label class="sub-label" for="s3a">Stratégie CLB 8</label>
+      <label class="sub-label" for="s3b">Consignes réelles</label>
+      <label class="sub-label" for="s3c">Thèmes &amp; fréquences</label>
+    </div>
+
+    <div class="sub-content s3a">
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#E1F5EE;color:#0F6E56">1</div>
+    <div class="s-info"><div class="s-name">Technologie, Internet et Médias</div><div class="s-sub">Smartphones, réseaux sociaux, IA, télévision, jeux vidéo (~380 thèmes)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#E1F5EE;color:#0F6E56">Catégorie n°1 — priorité absolue</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">1</div><div class="step-x">Reformuler la question pour montrer que vous avez compris l'enjeu</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">2</div><div class="step-x">Annoncer clairement votre position dès la 1ère phrase</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">3</div><div class="step-x">Argument 1 : bénéfice concret avec un exemple du quotidien</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">4</div><div class="step-x">Argument 2 : dimension sociale ou éducative</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">5</div><div class="step-x">Concession : reconnaître sincèrement le risque ou la limite</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">6</div><div class="step-x">Dépasser la concession : nuance ou solution concrète</div></div>
+<div class="step"><div class="step-n" style="background:#E1F5EE;color:#0F6E56">7</div><div class="step-x">Conclusion : élargir à un enjeu de société + invitation à débattre</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Position</span><span class="ph-text">Personnellement, je suis convaincu(e) que [POSITION], et je vais vous expliquer pourquoi.</span></div>
+<div class="ph-row"><span class="ph-role">Argument 1</span><span class="ph-text">En premier lieu, force est de constater que [POINT], comme en témoigne [EXEMPLE CONCRET].</span></div>
+<div class="ph-row"><span class="ph-role">Argument 2</span><span class="ph-text">Par ailleurs, il ne faut pas négliger l'aspect [DIMENSION], qui joue un rôle déterminant dans [CONTEXTE].</span></div>
+<div class="ph-row"><span class="ph-role">Concession</span><span class="ph-text">Certes, on ne peut pas ignorer que [ARGUMENT ADVERSE] — et cette préoccupation est tout à fait légitime.</span></div>
+<div class="ph-row"><span class="ph-role">Dépassement</span><span class="ph-text">Toutefois, cette difficulté n'est pas insurmontable, à condition que [NUANCE / RESPONSABILITÉ PARTAGÉE].</span></div>
+<div class="ph-row"><span class="ph-role">Conclusion</span><span class="ph-text">En définitive, la question n'est pas tant de [FAUX DÉBAT] que de [VRAI ENJEU]. Et vous, qu'en pensez-vous ?</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#E1F5EE;color:#0F6E56">Peut-on vivre sans Internet ?</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Smartphones chez les enfants</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Réseaux sociaux et amitié</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Jeux vidéo</span>
+<span class="tag" style="background:#E1F5EE;color:#0F6E56">Télévision éducative</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — « Internet rend les gens solitaires. Qu'en pensez-vous ? »</div>
+      <div class="ex-text">Cette affirmation mérite qu'on la nuance — elle repose sur une vision réductrice d'Internet.
+
+Personnellement, je pense que la réalité est plus complexe. En premier lieu, Internet permet de maintenir des liens avec des proches éloignés — je pense aux familles immigrées qui communiquent quotidiennement avec leurs parents restés au pays. Ce n'est pas de la solitude, c'est exactement l'inverse.
+
+Par ailleurs, des plateformes entières sont construites autour de la communauté — forums, groupes de passionnés, réseaux d'entraide. Des liens réels se forment en ligne et se prolongent souvent dans la vie réelle.
+
+Certes, on ne peut nier que l'usage excessif des réseaux sociaux peut générer une forme d'isolement, notamment chez les adolescents. Cette préoccupation est légitime.
+
+Toutefois, ce n'est pas Internet en soi qui isole — c'est l'usage qu'on en fait. À condition que la technologie soit utilisée comme un complément et non un substitut aux relations humaines, elle peut enrichir notre vie sociale.
+
+En définitive, la question n'est pas de savoir si Internet est bon ou mauvais, mais comment nous choisissons de l'utiliser.</div>
+      <div class="ex-note">Durée idéale : 2 à 3 minutes · Éviter les longues pauses · Regarder l'examinateur</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FAEEDA;color:#854F0B">2</div>
+    <div class="s-info"><div class="s-name">Immigration et Vie à l'Étranger</div><div class="s-sub">Adaptation, culture, langue, motivations, famille (~345 thèmes)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FAEEDA;color:#854F0B">Catégorie n°2 — très ciblée pour les candidats TCF Canada</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">1</div><div class="step-x">Reformuler l'affirmation avec vos propres mots</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">2</div><div class="step-x">Prendre position clairement — l'expérience personnelle est bienvenue</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">3</div><div class="step-x">Argument 1 : défi réel de l'adaptation</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">4</div><div class="step-x">Argument 2 : richesse et opportunité de l'expérience</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">5</div><div class="step-x">Concession : nuancer selon le profil ou le contexte</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">6</div><div class="step-x">Proposition concrète ou conseil pratique</div></div>
+<div class="step"><div class="step-n" style="background:#FAEEDA;color:#854F0B">7</div><div class="step-x">Conclusion ouverte</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Reformulation</span><span class="ph-text">Cette affirmation touche à quelque chose que beaucoup d'immigrants connaissent de l'intérieur — et elle contient une part de vérité.</span></div>
+<div class="ph-row"><span class="ph-role">Position</span><span class="ph-text">À mon avis, [POSITION] — et cela tient à plusieurs facteurs que j'aimerais vous exposer.</span></div>
+<div class="ph-row"><span class="ph-role">Défi</span><span class="ph-text">Il est indéniable que [DIFFICULTÉ] représente un obstacle réel, surtout dans les premiers mois.</span></div>
+<div class="ph-row"><span class="ph-role">Opportunité</span><span class="ph-text">Cependant, cette expérience offre aussi [RICHESSE] — une ouverture d'esprit et une résilience que l'on ne peut acquérir autrement.</span></div>
+<div class="ph-row"><span class="ph-role">Nuance</span><span class="ph-text">Tout dépend en réalité du profil de la personne, de son âge, de son réseau et des conditions dans lesquelles elle arrive.</span></div>
+<div class="ph-row"><span class="ph-role">Conseil</span><span class="ph-text">Ce qui fait vraiment la différence, c'est [CONSEIL PRATIQUE : créer des liens, apprendre la langue, s'ouvrir à la culture locale].</span></div>
+<div class="ph-row"><span class="ph-role">Conclusion</span><span class="ph-text">En somme, vivre à l'étranger n'est pas facile — mais c'est une aventure qui transforme profondément.</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FAEEDA;color:#854F0B">Vivre à l'étranger est difficile</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Changer de pays = changer de culture</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Parler la langue locale</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Âge idéal pour émigrer</span>
+<span class="tag" style="background:#FAEEDA;color:#854F0B">Partir seul ou en famille</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — « Vivre dans un pays étranger est difficile. Êtes-vous d'accord ? »</div>
+      <div class="ex-text">Cette affirmation contient une part indéniable de vérité — et elle touche à quelque chose que beaucoup de personnes ont vécu.
+
+À mon avis, oui, vivre dans un pays étranger est difficile — mais cette difficulté est relative, et elle varie énormément selon les personnes et les contextes.
+
+Il est indéniable que la barrière de la langue, les codes culturels différents et l'éloignement familial représentent des défis réels, surtout dans les premiers mois.
+
+Cependant, cette expérience offre aussi une richesse exceptionnelle : on développe une adaptabilité, une ouverture d'esprit et une confiance en soi qu'on n'acquiert pas autrement.
+
+Tout dépend aussi des raisons du départ. Partir par choix ou par nécessité, en famille ou seul — ce n'est pas du tout la même réalité.
+
+Ce qui fait vraiment la différence, c'est la capacité à créer des liens locaux et à s'investir dans la nouvelle communauté. C'est là que commence la vraie intégration.</div>
+      <div class="ex-note">Les candidats TCF Canada peuvent s'appuyer sur leur propre expérience — c'est valorisé</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#E6F1FB;color:#185FA5">3</div>
+    <div class="s-info"><div class="s-name">Travail et Vie Professionnelle</div><div class="s-sub">Salaire, télétravail, retraite, motivation, carrière (~330 thèmes)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#E6F1FB;color:#185FA5">Catégorie n°3 — sujets très prévisibles</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">1</div><div class="step-x">Reformuler pour montrer que vous cernez le vrai enjeu</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">2</div><div class="step-x">Prendre position — avec une nuance initiale si nécessaire</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">3</div><div class="step-x">Argument 1 : dimension économique ou pratique</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">4</div><div class="step-x">Argument 2 : dimension humaine, bien-être ou équité</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">5</div><div class="step-x">Concession : reconnaître le point de vue opposé</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">6</div><div class="step-x">Dépasser la concession avec un exemple concret</div></div>
+<div class="step"><div class="step-n" style="background:#E6F1FB;color:#185FA5">7</div><div class="step-x">Conclusion engagée</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Reformulation</span><span class="ph-text">Derrière cette question se pose un débat fondamental sur [ENJEU CENTRAL DU MONDE DU TRAVAIL].</span></div>
+<div class="ph-row"><span class="ph-role">Position</span><span class="ph-text">Pour ma part, je considère que [POSITION] — et je vais tenter de l'expliquer de manière nuancée.</span></div>
+<div class="ph-row"><span class="ph-role">Économique</span><span class="ph-text">D'un point de vue économique, [ARGUMENT PRATIQUE / FINANCIER] — et les chiffres le confirment.</span></div>
+<div class="ph-row"><span class="ph-role">Humain</span><span class="ph-text">Mais au-delà des chiffres, il y a une dimension humaine essentielle : [BIEN-ÊTRE / ÉQUITÉ / SENS].</span></div>
+<div class="ph-row"><span class="ph-role">Concession</span><span class="ph-text">Je comprends toutefois ceux qui pensent que [ARGUMENT ADVERSE] — ce n'est pas sans fondement.</span></div>
+<div class="ph-row"><span class="ph-role">Dépassement</span><span class="ph-text">Cela dit, des entreprises qui ont osé [MESURE ALTERNATIVE] ont observé [RÉSULTAT CONCRET].</span></div>
+<div class="ph-row"><span class="ph-role">Conclusion</span><span class="ph-text">En fin de compte, un travail épanouissant n'est pas un luxe — c'est une condition de la performance durable.</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#E6F1FB;color:#185FA5">Le salaire — seul facteur ?</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Télétravail</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Travailler jusqu'à 70 ans</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Même salaire pour tous</span>
+<span class="tag" style="background:#E6F1FB;color:#185FA5">Aimer son travail pour réussir</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — « La chose la plus importante dans un travail, c'est le salaire. »</div>
+      <div class="ex-text">Derrière cette question se cache un débat fondamental sur ce qui donne du sens au travail.
+
+Pour ma part, je pense que le salaire est certes important — c'est une nécessité vitale. Mais le réduire à la seule motivation du travail, c'est passer à côté de ce qui fait qu'une carrière est vraiment épanouissante.
+
+D'un point de vue économique, il est évident que la rémunération conditionne notre niveau de vie, notre sécurité, notre capacité à nous projeter. C'est un point de départ légitime.
+
+Mais des études montrent régulièrement que les employés les plus engagés sont ceux qui trouvent du sens dans leur mission et qui se sentent reconnus — pas nécessairement ceux qui gagnent le plus.
+
+Je comprends ceux qui diront que sans salaire décent, le reste ne compte pas — et c'est vrai, le minimum vital est non négociable.
+
+Cela dit, des entreprises qui ont investi dans le bien-être au travail ont souvent observé une hausse de productivité et une baisse du turnover.
+
+En fin de compte, un salaire juste est la base — mais ce qui transforme un emploi en vocation, c'est bien autre chose.</div>
+      <div class="ex-note">CLB 8 = nuancer sans perdre sa position · Éviter les réponses uniquement personnelles</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FBEAF0;color:#993556">4</div>
+    <div class="s-info"><div class="s-name">Éducation et Formation</div><div class="s-sub">Diplômes, méthodes, école à la maison, apprentissage continu (~310 thèmes)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FBEAF0;color:#993556">Catégorie n°4 — sujets très prévisibles</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">1</div><div class="step-x">Reformuler l'enjeu éducatif en vos termes</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">2</div><div class="step-x">Prendre position sur la valeur de [DIPLÔME / MÉTHODE / RÉCOMPENSE...]</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">3</div><div class="step-x">Argument 1 : rôle de l'institution scolaire</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">4</div><div class="step-x">Argument 2 : limites ou dérives du système</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">5</div><div class="step-x">Concession : point de vue des défenseurs du système</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">6</div><div class="step-x">Exemple concret (pays, réforme, personnalité connue)</div></div>
+<div class="step"><div class="step-n" style="background:#FBEAF0;color:#993556">7</div><div class="step-x">Conclusion avec un appel à l'équilibre</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Reformulation</span><span class="ph-text">Cette question touche à la valeur même que notre société accorde à [L'ÉDUCATION / LE DIPLÔME].</span></div>
+<div class="ph-row"><span class="ph-role">Position</span><span class="ph-text">À mon sens, [POSITION NUANCÉE] — ni totalement pour, ni totalement contre.</span></div>
+<div class="ph-row"><span class="ph-role">Institution</span><span class="ph-text">D'un côté, le système éducatif offre [APPORT : cadre, socialisation, reconnaissance officielle].</span></div>
+<div class="ph-row"><span class="ph-role">Limites</span><span class="ph-text">De l'autre, on ne peut ignorer que [DÉRIVE : inégalités, inadaptation au marché, manque de créativité].</span></div>
+<div class="ph-row"><span class="ph-role">Concession</span><span class="ph-text">Ceux qui défendent [POSITION ADVERSE] ont raison de souligner que [ARGUMENT LÉGITIME].</span></div>
+<div class="ph-row"><span class="ph-role">Exemple</span><span class="ph-text">On peut penser à [EXEMPLE OU PAYS] qui prouve que [THÈSE OU ANTITHÈSE].</span></div>
+<div class="ph-row"><span class="ph-role">Conclusion</span><span class="ph-text">Au fond, l'objectif devrait être non pas de [EXTRÊME] mais de [ÉQUILIBRE SOUHAITABLE].</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FBEAF0;color:#993556">Diplômes et réussite</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Récompenser les bons résultats</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">L'apprentissage n'a pas d'âge</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">Matières culturelles à l'école</span>
+<span class="tag" style="background:#FBEAF0;color:#993556">École à la maison</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — « Les diplômes sont indispensables dans la réussite professionnelle. »</div>
+      <div class="ex-text">Cette question touche à la valeur même que notre société accorde à la formation académique.
+
+À mon sens, les diplômes sont importants — mais pas indispensables au sens absolu. La réalité est plus nuancée.
+
+D'un côté, le diplôme offre un cadre structurant, une reconnaissance officielle et un accès facilité à certains secteurs réglementés comme la médecine ou le droit.
+
+De l'autre, de nombreux entrepreneurs à succès — des autodidactes dans les métiers créatifs ou technologiques — ont réussi sans diplôme universitaire. L'expérience et les compétences pratiques comptent énormément.
+
+Ceux qui défendent le diplôme ont raison de souligner qu'il offre une base de connaissances solide — ce n'est pas négligeable.
+
+Mais dans de nombreux secteurs aujourd'hui, un portfolio, des projets concrets ou des certifications courtes peuvent valoir bien plus qu'un master non adapté au marché.
+
+Au fond, l'objectif devrait être non pas de hiérarchiser diplôme et expérience, mais de les combiner intelligemment selon les parcours.</div>
+      <div class="ex-note">Utiliser des exemples concrets — pays, réformes, personnalités — ça valorise considérablement l'exposé</div>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-num" style="background:#FAECE7;color:#993C1D">5</div>
+    <div class="s-info"><div class="s-name">Société, Environnement et Bien-être</div><div class="s-sub">Relations humaines, égalité, consommation, transports, santé (~270 + 240 + 235 thèmes)</div></div>
+  </summary>
+  <div class="det-body">
+    <div class="freq-badge" style="background:#FAECE7;color:#993C1D">Catégories 5, 6 et 7 combinées — très variées</div>
+    <div class="step-title">Structure de réponse — étape par étape</div>
+    <div class="steps"><div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">1</div><div class="step-x">Reformuler en ancrant le sujet dans un contexte actuel</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">2</div><div class="step-x">Prendre position — affirmative ou nuancée</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">3</div><div class="step-x">Argument 1 : dimension sociale ou comportementale</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">4</div><div class="step-x">Argument 2 : dimension économique, écologique ou éthique</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">5</div><div class="step-x">Concession : complexité réelle de la situation</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">6</div><div class="step-x">Proposition ou piste de solution concrète</div></div>
+<div class="step"><div class="step-n" style="background:#FAECE7;color:#993C1D">7</div><div class="step-x">Conclusion ouverte sur l'avenir ou la responsabilité collective</div></div></div>
+    <div class="ph-block">
+      <div class="ph-block-title">Phrases CLB 8 — prêtes à l'oral</div>
+      <div class="ph-row"><span class="ph-role">Ancrage</span><span class="ph-text">À l'heure où [CONTEXTE ACTUEL : crise climatique, individualisme, inégalités…], cette question est plus pertinente que jamais.</span></div>
+<div class="ph-row"><span class="ph-role">Position</span><span class="ph-text">Je suis [D'ACCORD / PAS TOUT À FAIT D'ACCORD] avec cette affirmation, et voici pourquoi.</span></div>
+<div class="ph-row"><span class="ph-role">Social</span><span class="ph-text">Sur le plan humain, [ARGUMENT COMPORTEMENTAL OU RELATIONNEL], comme en témoigne [OBSERVATION / EXEMPLE].</span></div>
+<div class="ph-row"><span class="ph-role">Éthique</span><span class="ph-text">D'un point de vue [ÉCONOMIQUE / ÉCOLOGIQUE / ÉTHIQUE], [ARGUMENT STRUCTURÉ].</span></div>
+<div class="ph-row"><span class="ph-role">Complexité</span><span class="ph-text">La situation est cependant complexe : [RAISON POUR LAQUELLE CE N'EST PAS SIMPLE].</span></div>
+<div class="ph-row"><span class="ph-role">Solution</span><span class="ph-text">Une piste concrète serait [SOLUTION RÉALISTE], comme certaines villes ou pays l'ont déjà expérimenté.</span></div>
+<div class="ph-row"><span class="ph-role">Conclusion</span><span class="ph-text">En définitive, cette question engage la responsabilité de chacun — individus, entreprises et gouvernements confondus.</span></div>
+    </div>
+    <div class="step-title">Sujets couverts</div>
+    <div class="tags"><span class="tag" style="background:#FAECE7;color:#993C1D">Transports gratuits en ville</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Interdire les voitures</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Arrêter la viande</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">L'argent fait-il le bonheur ?</span>
+<span class="tag" style="background:#FAECE7;color:#993C1D">Musées gratuits</span></div>
+    <div class="ex-box">
+      <div class="ex-title">Exemple — « Les transports en commun doivent être gratuits en ville. »</div>
+      <div class="ex-text">À l'heure où les villes cherchent à réduire leur empreinte carbone, cette question est plus pertinente que jamais.
+
+Personnellement, je suis favorable à la gratuité des transports en commun — avec des nuances importantes.
+
+Sur le plan social, rendre les transports gratuits permettrait à des milliers de personnes à faibles revenus de se déplacer librement et d'accéder à l'emploi. C'est une mesure de justice sociale concrète.
+
+D'un point de vue écologique, cette mesure inciterait davantage de gens à laisser leur voiture au garage — réduisant ainsi la pollution et les embouteillages.
+
+La situation est cependant complexe : qui finance cette gratuité ? Des villes comme Dunkerque en France ont expérimenté avec des résultats globalement positifs, mais les grandes métropoles représentent un tout autre défi.
+
+Une piste concrète serait de commencer par la gratuité pour les jeunes et les retraités, avant d'étendre progressivement le dispositif.
+
+En définitive, cette question engage la responsabilité collective — des élus qui financent et des citoyens qui choisissent leurs modes de déplacement.</div>
+      <div class="ex-note">Citer des exemples réels (villes, pays) renforce considérablement la crédibilité à l'oral</div>
+    </div>
+  </div>
+</details>
+    </div>
+    <div class="sub-content s3b">
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#1D9E75"></div>
+    <div class="s-info"><div class="s-name">Technologie, Internet et Médias (~380 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #1D9E75">« À votre avis, peut-on vivre sans Internet ? Pourquoi ? »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« L'usage des téléphones portables devrait-il être interdit aux enfants ? Pourquoi ? »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Les réseaux sociaux permettent de rencontrer de nouveaux amis plus facilement. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« La télévision participe au développement des enfants. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #1D9E75">« Internet rend les gens solitaires. Que pensez-vous de cette affirmation ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#185FA5"></div>
+    <div class="s-info"><div class="s-name">Immigration et Vie à l'Étranger (~345 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #185FA5">« Vivre dans un pays étranger est difficile. Êtes-vous d'accord avec cette affirmation ? »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Changer de pays, c'est changer de culture. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Il est possible de vivre dans un pays sans en parler la langue. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Pour bien vivre dans un pays étranger, il est indispensable de créer des relations avec les habitants du pays. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #185FA5">« Selon vous, à quel âge est-il préférable d'émigrer ? Pourquoi ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#BA7517"></div>
+    <div class="s-info"><div class="s-name">Travail et Vie Professionnelle (~330 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #BA7517">« La chose la plus importante dans un travail, c'est le salaire. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Le développement du télétravail est un progrès pour tous. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Pensez-vous que faire travailler les gens jusqu'à 70 ans est une mesure acceptable ? »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Dans une entreprise, tout le monde devrait avoir le même salaire. Que pensez-vous de cette affirmation ? »</div>
+<div class="con-item" style="border-left:3px solid #BA7517">« Est-il indispensable d'aimer son travail pour réussir dans sa vie professionnelle ? Pourquoi ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#534AB7"></div>
+    <div class="s-info"><div class="s-name">Éducation et Formation (~310 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #534AB7">« Les diplômes sont indispensables dans la réussite professionnelle. Êtes-vous d'accord ? »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Certains parents récompensent leurs enfants avec de l'argent pour leurs bons résultats scolaires. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Pensez-vous que l'apprentissage n'a pas d'âge ? »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Les matières culturelles (musique, dessin, théâtre, etc.) ne devraient pas être enseignées à l'école. Êtes-vous d'accord ? »</div>
+<div class="con-item" style="border-left:3px solid #534AB7">« Certains parents favorisent l'éducation à la maison. Qu'en pensez-vous ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#D85A30"></div>
+    <div class="s-info"><div class="s-name">Société et Comportement (~270 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #D85A30">« Vaut-il mieux être entouré d'une grande famille ou d'amis proches et fidèles ? Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« De nos jours, les jeunes sont de moins en moins polis. Êtes-vous d'accord ? Pourquoi ? »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Pensez-vous qu'il est possible de trouver le bonheur en vivant célibataire ? »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« L'argent fait le bonheur. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #D85A30">« Selon vous, faut-il avoir une journée dédiée à la défense des droits des femmes ? Pourquoi ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#639922"></div>
+    <div class="s-info"><div class="s-name">Environnement, Transports et Consommation (~240 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #639922">« Les transports en commun doivent être gratuits en ville. Est-ce une bonne idée selon vous ? »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Est-il possible de développer l'économie en préservant l'environnement ? »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Faut-il interdire les voitures dans les centres-villes ? Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Tout le monde peut agir pour produire moins de déchets. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #639922">« Consommer des produits bio est réservé aux personnes les plus riches. Êtes-vous d'accord ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993C1D"></div>
+    <div class="s-info"><div class="s-name">Santé, Alimentation et Bien-être (~235 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #993C1D">« Pour être en bonne santé, il faut arrêter de manger de la viande. Que pensez-vous de cette affirmation ? »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Vivre sans médicaments est impossible. Êtes-vous d'accord avec cette affirmation ? »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« De plus en plus de personnes font appel à la chirurgie esthétique pour rester jeune. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« Il faut obliger les enfants à faire du sport. Êtes-vous d'accord ? Pourquoi ? »</div>
+<div class="con-item" style="border-left:3px solid #993C1D">« La plupart des gens veulent paraître plus jeunes que leur âge. Qu'en pensez-vous ? »</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#888780"></div>
+    <div class="s-info"><div class="s-name">Culture, Loisirs et Tourisme (~210 thèmes)</div></div>
+    <span class="s-count">5 consignes</span>
+  </summary>
+  <div class="det-body">
+    <div class="con-list"><div class="con-item" style="border-left:3px solid #888780">« Le développement du tourisme est contraire à la protection de l'environnement. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Les musées devraient être gratuits pour tout le monde. Argumentez. »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Les parcs zoologiques ont-ils une utilité ? Pourquoi ? »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Certaines personnes préfèrent voyager seules. Qu'en pensez-vous ? »</div>
+<div class="con-item" style="border-left:3px solid #888780">« Préférez-vous regarder des pièces de théâtre ou des films ? Expliquez pourquoi. »</div></div>
+  </div>
+</details>
+    </div>
+    <div class="sub-content s3c">
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#1D9E75"></div>
+    <div class="s-info"><div class="s-name">Technologie, Internet et Médias</div></div>
+    <span class="s-count">~380 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Peut-on vivre sans Internet ?</div><div class="sc-d">Bienfaits vs. dépendance numérique</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Smartphones chez les enfants</div><div class="sc-d">Âge limite, risques, apprentissage</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Réseaux sociaux et amitié</div><div class="sc-d">Faciliter ou superficialiser les liens ?</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Jeux vidéo et développement</div><div class="sc-d">Bienfaits cognitifs vs. violence</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Télévision et éducation</div><div class="sc-d">Instruction vs. passivité</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Intelligence artificielle et emploi</div><div class="sc-d">Opportunité ou menace ?</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#185FA5"></div>
+    <div class="s-info"><div class="s-name">Immigration et Vie à l'Étranger</div></div>
+    <span class="s-count">~345 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Vivre à l'étranger est difficile</div><div class="sc-d">Adaptation, langue, éloignement</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Changer de pays = changer de culture</div><div class="sc-d">Identité, traditions, intégration</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Parler la langue locale — indispensable ?</div><div class="sc-d">Communication vs. minorités</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Créer des liens avec la population locale</div><div class="sc-d">Intégration sociale active</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Âge idéal pour émigrer</div><div class="sc-d">Jeunesse vs. maturité</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Partir seul ou en famille</div><div class="sc-d">Liberté vs. soutien émotionnel</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#BA7517"></div>
+    <div class="s-info"><div class="s-name">Travail et Vie Professionnelle</div></div>
+    <span class="s-count">~330 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Le salaire — seul facteur de motivation ?</div><div class="sc-d">Rémunération vs. sens et bien-être</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Télétravail — progrès pour tous ?</div><div class="sc-d">Flexibilité vs. isolement</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Travailler jusqu'à 70 ans</div><div class="sc-d">Réforme des retraites — acceptable ?</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Même salaire pour tous</div><div class="sc-d">Équité vs. mérite</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Aimer son travail — nécessaire ?</div><div class="sc-d">Passion vs. professionnalisme</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Changer de métier à tout âge</div><div class="sc-d">Reconversion professionnelle</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">La sieste au travail</div><div class="sc-d">Productivité vs. image professionnelle</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#534AB7"></div>
+    <div class="s-info"><div class="s-name">Éducation et Formation</div></div>
+    <span class="s-count">~310 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Diplômes — indispensables pour réussir ?</div><div class="sc-d">Académique vs. expérience pratique</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Récompenser les bons résultats scolaires</div><div class="sc-d">Motivation vs. conditionnement</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">L'apprentissage n'a pas d'âge</div><div class="sc-d">Formation tout au long de la vie</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Matières culturelles à l'école</div><div class="sc-d">Arts — utiles ou secondaires ?</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">École à la maison</div><div class="sc-d">Pédagogie individualisée vs. socialisation</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#D85A30"></div>
+    <div class="s-info"><div class="s-name">Société et Comportement</div></div>
+    <span class="s-count">~270 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Famille ou amis proches — que choisir ?</div><div class="sc-d">Liens du sang vs. liens affinitaires</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Les jeunes sont moins polis aujourd'hui</div><div class="sc-d">Évolution des normes sociales</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Bonheur en vivant seul(e) — possible ?</div><div class="sc-d">Célibat et épanouissement</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">L'argent fait-il le bonheur ?</div><div class="sc-d">Matière vs. relations et sens</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Journée des droits des femmes — nécessaire ?</div><div class="sc-d">Symbolisme vs. action</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Parité homme-femme en politique</div><div class="sc-d">Quotas vs. mérite</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#639922"></div>
+    <div class="s-info"><div class="s-name">Environnement, Transports et Consommation</div></div>
+    <span class="s-count">~240 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Transports gratuits en ville</div><div class="sc-d">Justice sociale vs. financement public</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Interdire les voitures dans les centres-villes</div><div class="sc-d">Air pur vs. liberté de circulation</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Économie et protection de l'environnement</div><div class="sc-d">Développement vs. durabilité</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Réduire ses déchets — possible pour tous ?</div><div class="sc-d">Responsabilité de consommation</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Produits bio — réservés aux riches ?</div><div class="sc-d">Accès et prix vs. bénéfices</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#993C1D"></div>
+    <div class="s-info"><div class="s-name">Santé, Alimentation et Bien-être</div></div>
+    <span class="s-count">~235 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Arrêter la viande pour être en bonne santé</div><div class="sc-d">Végétarisme vs. tradition alimentaire</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Vivre sans médicaments — impossible ?</div><div class="sc-d">Médecine conventionnelle vs. alternatives</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Chirurgie esthétique pour paraître jeune</div><div class="sc-d">Liberté individuelle vs. pression sociale</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Obliger les enfants à faire du sport</div><div class="sc-d">Santé publique vs. liberté éducative</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Alimentation équilibrée et mode de vie</div><div class="sc-d">Choix personnels vs. éducation alimentaire</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+
+<details>
+  <summary>
+    <div class="s-dot" style="background:#888780"></div>
+    <div class="s-info"><div class="s-name">Culture, Loisirs et Tourisme</div></div>
+    <span class="s-count">~210 scénarios</span>
+  </summary>
+  <div class="det-body">
+    <ul class="sc-list"><li><div class="sc-li"><div class="sc-n">Le tourisme nuit-il à l'environnement ?</div><div class="sc-d">Tourisme de masse vs. voyages responsables</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Musées gratuits pour tous</div><div class="sc-d">Accès universel à la culture vs. financement</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Zoos — utiles ou cruels ?</div><div class="sc-d">Conservation vs. captivité</div></div><span class="occ oh">Très fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Voyager seul(e) — pour ou contre ?</div><div class="sc-d">Liberté vs. sécurité et partage</div></div><span class="occ om">Fréquent</span></li>
+<li><div class="sc-li"><div class="sc-n">Théâtre ou cinéma — votre préférence ?</div><div class="sc-d">Débat culturel ouvert</div></div><span class="occ om">Fréquent</span></li></ul>
+  </div>
+</details>
+    </div>
+  </div><!-- tab t3 -->
+
+</div><!-- tab-wrap -->
+</div><!-- app -->
+
+<script>
+function toggleExp2(key) {
+  const btn = document.querySelector(`[onclick="toggleExp2('${key}')"]`);
+  const content = document.getElementById('exp2-' + key);
+  btn.classList.toggle('open');
+  content.classList.toggle('open');
+}
+</script>
+</body>
+</html>
